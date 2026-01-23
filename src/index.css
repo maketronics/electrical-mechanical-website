@@ -7,7 +7,6 @@
 
   color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #111827;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -20,15 +19,34 @@
 }
 
 body {
-  background-image: url('/textures/industrial-bg.jpg');
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  position: relative;
+  background-color: #0a0a0a;
+  color: #f3f4f6;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-image: url('/textures/industrial-bg.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  background-color: #0f172a; /* fallback */
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  filter: brightness(0.4) contrast(0.8);
 }
 
 html {
   scroll-behavior: smooth;
+  background: transparent;
 }
 
 a {

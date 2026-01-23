@@ -1,11 +1,16 @@
-import Home from './pages/Home'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import MechanicalSystems from './pages/MechanicalSystems';
 
 // App.jsx
 function App() {
   return (
-    <div className="min-h-screen bg-gray-900/70 text-gray-100">
-      <Home />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/mechanical-systems" element={<MechanicalSystems />} />
+      </Routes>
+    </Router>
   );
 }
 

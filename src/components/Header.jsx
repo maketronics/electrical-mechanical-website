@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import PrimaryCTA from './PrimaryCTA';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,8 +27,8 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-gray-900/95 backdrop-blur border-b border-gray-800'
-          : 'bg-gray-900/90 backdrop-blur'
+          ? 'bg-black border-b border-gray-800'
+          : 'bg-black'
       }`}
     >
       {/* Container is w-full to ensure it hits the edges of the screen */}
@@ -35,12 +37,12 @@ const Header = () => {
 
           {/* 1. LOGO — PUSHED TO THE FAR LEFT */}
           <div className="flex-shrink-0">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="text-2xl font-black tracking-tighter text-yellow-400 hover:text-yellow-300 transition-colors"
             >
               MAKETRONICS
-            </a>
+            </Link>
           </div>
 
           {/* 2. RIGHT SIDE CONTAINER (Nav + CTA) */}
@@ -49,13 +51,17 @@ const Header = () => {
             {/* NAV LINKS */}
             <nav className="flex items-center space-x-10 mr-12">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
-                  className="text-xs font-bold uppercase tracking-widest text-gray-300 hover:text-yellow-400 transition-colors whitespace-nowrap"
+                  to={link.href}
+                  className={`text-xs font-bold uppercase tracking-widest transition-colors whitespace-nowrap ${
+                    location.pathname === link.href
+                      ? 'text-yellow-400'
+                      : 'text-gray-300 hover:text-yellow-400'
+                  }`}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </nav>
 

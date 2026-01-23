@@ -1,14 +1,14 @@
 const ImagePlaceholder = ({ src, alt, className = '' }) => {
   return (
-    <div className={`relative bg-gray-800 rounded-lg overflow-hidden ${className}`}>
+    <div className={`relative rounded-3xl overflow-hidden shadow-2xl ${className}`}>
       {src ? (
         <img
           src={src}
           alt={alt}
-          className="w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
       ) : (
-        <div className="w-full h-full bg-gray-700 flex items-center justify-center">
+        <div className="w-full h-full bg-gray-800/50 flex items-center justify-center">
           <div className="text-center text-gray-500">
             <svg
               className="w-16 h-16 mx-auto mb-2"
@@ -32,4 +32,3 @@ const ImagePlaceholder = ({ src, alt, className = '' }) => {
 };
 
 export default ImagePlaceholder;
-
