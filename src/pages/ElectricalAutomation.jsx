@@ -10,7 +10,8 @@ const ElectricalAutomation = () => {
       
       <main>
         {/* 1. Hero Section - Precision & Intelligence */}
-        <section
+       {/* 1. Hero Section - Optimized Visibility */}
+       <section
           className="relative min-h-screen flex items-center overflow-hidden"
           style={{
             backgroundImage: "linear-gradient(to right, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0.4) 100%), url('/elec.png')",
@@ -21,9 +22,10 @@ const ElectricalAutomation = () => {
         >
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#050505]"></div>
           
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-20">
+          {/* Reduced pt-20 to pt-12 to lift the text block */}
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-12">
             <div className="max-w-4xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-yellow-400/30 bg-yellow-400/10 text-yellow-400 text-xs font-bold uppercase tracking-widest mb-6 animate-fade-in">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-yellow-400/30 bg-yellow-400/10 text-yellow-400 text-xs font-bold uppercase tracking-widest mb-4 animate-fade-in">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-400"></span>
@@ -31,18 +33,20 @@ const ElectricalAutomation = () => {
                 Automation Systems
               </div>
               
-              <h1 className="text-5xl md:text-6xl lg:text-8xl font-black text-white leading-[1.1] mb-8 tracking-tighter">
+              {/* Reduced heading from text-8xl to text-7xl for better fit */}
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6 tracking-tighter">
                 Electrical & <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
                   Automation Solutions
                 </span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-gray-300 mb-6 max-w-2xl font-light leading-relaxed">
+              {/* Tightened paragraph text and margin */}
+              <p className="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl font-light leading-relaxed">
                 Reliable electrical and automation systems engineered for continuous plant operation in high-dust and extreme vibration environments.
               </p>
 
-              <p className="text-sm text-gray-400 font-mono mb-10 border-l-2 border-yellow-400 pl-4">
+              <p className="text-xs text-gray-400 font-mono mb-8 border-l-2 border-yellow-400 pl-4 uppercase tracking-wider">
                 Systems integration engineered for site reality — not just diagrams.
               </p>
 
@@ -53,7 +57,6 @@ const ElectricalAutomation = () => {
             </div>
           </div>
         </section>
-
         {/* 2. Engineering Approach Section */}
         <section className="py-32 -mt-20 z-20 relative">
           <div className="max-w-7xl mx-auto px-6">

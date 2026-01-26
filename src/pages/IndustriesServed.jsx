@@ -5,11 +5,11 @@ import SecondaryCTA from '../components/SecondaryCTA';
 
 const IndustriesServed = () => {
   return (
-    <div className="bg-[#050505] text-white selection:bg-yellow-400 selection:text-black font-sans">
+    <div className="bg-[#050505] text-white selection:bg-yellow-400 selection:text-black font-sans antialiased">
       <Header />
       
       <main>
-        {/* 1. Hero Section - Adjusted to 85vh for site-wide consistency */}
+        {/* 1. Hero Section - Synchronized Height & Typography */}
         <section
           className="relative min-h-[85vh] flex items-center overflow-hidden"
           style={{
@@ -21,9 +21,10 @@ const IndustriesServed = () => {
         >
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#050505]"></div>
           
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-20">
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-12">
             <div className="max-w-4xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-yellow-400/30 bg-yellow-400/10 text-yellow-400 text-[10px] font-bold uppercase tracking-[0.3em] mb-8 animate-fade-in">
+              {/* Standardized Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-yellow-400/30 bg-yellow-400/10 text-yellow-400 text-xs font-bold uppercase tracking-widest mb-6">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-400"></span>
@@ -31,101 +32,162 @@ const IndustriesServed = () => {
                 Sector Expertise
               </div>
               
-              <h1 className="text-6xl md:text-7xl lg:text-9xl font-black text-white leading-[0.9] mb-10 tracking-tighter uppercase italic">
+              {/* Heading - text-7xl matches Mechanical Systems perfectly */}
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6 tracking-tighter uppercase italic">
                 Industries <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
                   We Serve
                 </span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-gray-400 max-w-2xl font-light leading-relaxed border-l-2 border-yellow-400/50 pl-8 italic">
-                Engineering solutions built for demanding material handling operations across the mineral and aggregate sectors.
+              {/* Standardized Paragraph size */}
+              <p className="text-lg md:text-xl text-gray-300 max-w-2xl font-light leading-relaxed italic border-l-2 border-yellow-400/50 pl-6">
+                Engineering solutions built for demanding material handling operations across the global mineral and aggregate sectors.
               </p>
             </div>
           </div>
         </section>
 
-        {/* 2. Industry Grid - Lowered Slotted Layout (No Popping) */}
-        <section className="py-24 relative z-20">
+        {/* 2. Industry Grid - 4 High-Density Tiles */}
+        <section className="py-24 bg-[#080808] border-y border-white/5">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+              <div>
+                <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-yellow-400 mb-2">Market Segments</h2>
+                <h3 className="text-4xl md:text-5xl font-black tracking-tighter uppercase italic">Core <span className="text-gray-500">Sectors</span></h3>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 { 
                   title: "Mining & Minerals", 
                   image: "/mining.png", 
-                  desc: "Heavy-duty integrated systems designed for high-tonnage extraction and primary processing plants."
+                  purpose: "High-tonnage extraction and primary processing plants.",
+                  bullets: ["Load-distribution frames", "Grizzly screen decks", "Wear-resistant liners", "Safety guard systems"],
+                  tags: ["High Tonnage", "Uptime"]
                 },
                 { 
                   title: "Quarries & Aggregates", 
                   image: "/Quarries.png", 
-                  desc: "Reliable solutions for crushing, screening, and material transfer designed specifically for stone production."
+                  purpose: "Precision screening and material transfer for stone production.",
+                  bullets: ["Modular chassis design", "Impact station protection", "Ergonomic service access", "Perimeter walkways"],
+                  tags: ["Modular", "Safety"]
                 },
                 { 
-                  title: "Crushing & Screening", 
+                  title: "Crushing & Screening Plants", 
                   image: "/crushing.png", 
-                  desc: "Integrated mechanical and electrical systems for optimized performance, whether mobile or stationary."
+                  purpose: "Integrated stations with structural mounting and automation.",
+                  bullets: ["Custom-specific frames", "Maintenance gantries", "Abrasion-resistant chutes", "Rotor box protection"],
+                  tags: ["Precision", "Capacity"]
                 },
                 { 
-                  title: "Bulk Material Handling", 
+                  title: "Bulk Material Processing", 
                   image: "/Bulk.png", 
-                  desc: "Systems designed for safe, controlled, high-volume material handling at ports, terminals, and facilities."
+                  purpose: "High-volume handling at ports, terminals, and storage facilities.",
+                  bullets: ["Support gantries", "Impact transfer points", "Belt tensioning systems", "Control interfaces"],
+                  tags: ["Logistics", "Volume"]
                 }
               ].map((item, i) => (
                 <div 
                   key={i} 
-                  className="group relative flex flex-col bg-[#0a0a0a] rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-yellow-400/30 transition-all duration-500 shadow-2xl"
+                  className="group bg-[#0a0a0a] rounded-[2rem] overflow-hidden border border-white/5 hover:border-yellow-400/40 transition-all duration-500 flex flex-col h-[650px] shadow-2xl"
                 >
-                  {/* Image Container - Fixed height h-80 like Mechanical Systems */}
-                  <div className="h-80 overflow-hidden relative">
+                  <div className="h-48 relative overflow-hidden bg-[#111]">
                     <div 
-                      className="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
                       style={{ backgroundImage: `url('${item.image}')` }}
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-700" />
-                    
-                    {/* Architectural Sector Tag */}
-                    <div className="absolute top-6 right-6 font-mono text-[10px] text-white/20 group-hover:text-yellow-400 transition-colors tracking-[0.2em]">
-                      [ SECTOR_ID_0{i + 1} ]
+                    ></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent"></div>
+                    <div className="absolute bottom-4 left-6">
+                      <span className="text-yellow-400 font-mono text-[10px] uppercase tracking-widest bg-black/60 backdrop-blur-sm px-2 py-1 rounded">
+                        SEC-0{i + 1}
+                      </span>
                     </div>
                   </div>
 
-                  {/* Technical Text Tray */}
-                  <div className="p-12 relative bg-gradient-to-b from-[#0a0a0a] to-[#050505]">
-                    {/* Vertical Accent Line - Engineering Style */}
-                    <div className="absolute top-0 left-0 w-[1px] h-0 bg-yellow-400 group-hover:h-full transition-all duration-700"></div>
+                  <div className="p-8 flex-grow flex flex-col justify-between">
+                    <div>
+                      <h4 className="text-xl font-bold mb-3 tracking-tighter uppercase italic group-hover:text-yellow-400 transition-colors leading-tight">
+                        {item.title}
+                      </h4>
+                      <p className="text-gray-400 text-[13px] italic mb-6 leading-relaxed border-l-2 border-yellow-400/30 pl-4">
+                        {item.purpose}
+                      </p>
+                      <ul className="space-y-3">
+                        {item.bullets.map((bullet, bid) => (
+                          <li key={bid} className="flex items-start gap-3 text-[13px] text-gray-300 leading-snug">
+                            <div className="h-1 w-1 rounded-full bg-yellow-400 mt-1.5 flex-shrink-0"></div>
+                            {bullet}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
-                    <h3 className="text-3xl font-black mb-4 tracking-tighter uppercase italic group-hover:text-yellow-400 transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-400 leading-relaxed text-sm font-light max-w-md">
-                      {item.desc}
-                    </p>
+                    <div className="flex flex-wrap gap-2 pt-6 border-t border-white/5">
+                      {item.tags.map((tag, tid) => (
+                        <span key={tid} className="text-[9px] font-bold uppercase tracking-widest text-yellow-400/80 bg-yellow-400/5 border border-yellow-400/10 px-2.5 py-1 rounded">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
+          </div>
+        </section>
 
-            {/* Philosophy Divider - Matching site-wide Process style */}
-            <div className="mt-32 pt-20 border-t border-white/5 text-center relative">
-               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-[1px] bg-yellow-400"></div>
-              <p className="text-2xl md:text-3xl text-gray-500 font-light leading-relaxed max-w-4xl mx-auto italic">
-                "Our solutions are engineered around <span className="text-white font-bold">real operating challenges</span>, not theoretical assumptions."
-              </p>
+        {/* 3. Methodology Line - Unified with other pages */}
+        <section className="py-24 bg-[#050505] overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
+              <div>
+                <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-yellow-400 mb-4">Methodology</h2>
+                <h3 className="text-5xl font-black tracking-tighter uppercase italic">Our <span className="text-gray-500">Approach</span></h3>
+              </div>
+              <div className="hidden lg:block h-[1px] flex-grow mx-12 bg-white/10 mb-4"></div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute top-[27px] left-0 w-full h-[1px] bg-white/5 hidden lg:block"></div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+                {[
+                  { step: "01", title: "Site Insight", desc: "Mapping geological challenges and production goals." },
+                  { step: "02", title: "Custom Design", desc: "Mechanical and electrical alignment for seamless flow." },
+                  { step: "03", title: "Supply Chain", desc: "Strategic component sourcing and fabrication." },
+                  { step: "04", title: "Plant Support", desc: "Ongoing optimization to ensure long-term ROI." }
+                ].map((item, i) => (
+                  <div key={i} className="group relative">
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="relative z-10 w-14 h-14 bg-[#050505] border border-white/10 rounded-xl flex items-center justify-center group-hover:border-yellow-400/50 transition-all duration-500">
+                        <span className="text-xl font-black text-white group-hover:text-yellow-400 transition-colors">{item.step}</span>
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <h4 className="text-sm font-bold uppercase tracking-widest text-white group-hover:text-yellow-400 transition-colors">{item.title}</h4>
+                      <p className="text-gray-400 text-xs leading-relaxed font-light pr-4">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* 3. Final CTA - Identical to Home & Mechanical */}
+        {/* 4. Final CTA */}
         <section className="py-24">
           <div className="max-w-5xl mx-auto px-6">
-            <div className="bg-yellow-400 rounded-[3rem] p-12 lg:p-20 text-center text-black shadow-2xl relative overflow-hidden group">
-               <div className="absolute top-0 right-0 w-64 h-64 bg-white/20 blur-[100px] rounded-full group-hover:scale-125 transition-transform duration-1000"></div>
-              <h2 className="text-5xl md:text-6xl font-black mb-8 tracking-tighter uppercase leading-none relative z-10">
-                Ready to Discuss <br className="hidden md:block" /> Your Project?
-              </h2>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
-                <PrimaryCTA className="!bg-black !text-white !px-12 !py-4" />
-                <SecondaryCTA className="!border-black/30 !text-black !px-12 !py-4" />
+            <div className="bg-yellow-400 rounded-[2.5rem] p-16 text-center text-black shadow-2xl relative overflow-hidden">
+              <div className="relative z-10">
+                <h2 className="text-5xl md:text-6xl font-black mb-8 tracking-tighter uppercase italic leading-none">
+                  Ready to Discuss <br /> Your Industry?
+                </h2>
+                <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                  <PrimaryCTA className="!bg-black !text-white !px-12 !py-4" />
+                  <SecondaryCTA className="!border-black/30 !text-black !px-12 !py-4" />
+                </div>
               </div>
             </div>
           </div>

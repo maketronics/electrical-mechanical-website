@@ -30,9 +30,9 @@ const Contact = () => {
       <Header />
       
       <main>
-        {/* 1. Hero Section - Calm & Confident */}
+        {/* 1. Hero Section - Optimized for Visibility */}
         <section
-          className="relative min-h-[85vh] flex items-center overflow-hidden"
+          className="relative min-h-[70vh] flex items-center overflow-hidden"
           style={{
             backgroundImage: "linear-gradient(to right, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0.6) 100%), url('/hero-bg.png')",
             backgroundSize: 'cover',
@@ -42,28 +42,29 @@ const Contact = () => {
         >
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#050505]"></div>
           
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-20">
+          {/* Reduced pt-20 to pt-12 to lift content */}
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-12">
             <div className="max-w-4xl">
-              <h1 className="text-6xl md:text-7xl lg:text-9xl font-black text-white leading-[0.9] mb-10 tracking-tighter uppercase italic">
+              <h1 className="text-6xl md:text-7xl lg:text-7xl font-black text-white leading-[0.9] mb-8 tracking-tighter uppercase italic">
                 CONTACT <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
                   US
                 </span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-gray-300 max-w-2xl font-light leading-relaxed border-l-2 border-yellow-400/50 pl-8 italic">
+              <p className="text-lg md:text-xl text-gray-300 max-w-2xl font-light leading-relaxed border-l-2 border-yellow-400/50 pl-6 italic">
                 Discuss your project requirements. We'll evaluate your needs and propose a practical system configuration.
               </p>
             </div>
           </div>
         </section>
 
-        {/* 2. Contact Options - Two-Column Layout */}
+        {/* 2. Contact Options - Form sits higher now */}
         <section className="py-24 relative z-20">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
               
-              {/* Left Column: Contact Details / Regions Served */}
+              {/* Left Column: Contact Details */}
               <div className="lg:col-span-5 space-y-12">
                 <div>
                   <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-yellow-400 mb-6">Contact Information</h2>
@@ -89,21 +90,19 @@ const Contact = () => {
               <div className="lg:col-span-7 bg-[#0a0a0a] p-10 rounded-[3rem] border border-white/10 shadow-2xl">
                 <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-yellow-400 mb-10">Project Enquiry</h2>
                 
-                <form onSubmit={handleSubmit} className="space-y-8">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Project Type */}
                     <div className="flex flex-col gap-2">
                       <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Project Type</label>
                       <select name="projectType" value={formData.projectType} onChange={handleChange} required className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-yellow-400 outline-none transition-colors">
-                        <option value="" className="bg-black">Select project type</option>
-                        <option value="new-plant" className="bg-black">New Plant</option>
-                        <option value="retrofit" className="bg-black">Retrofit / Upgrade</option>
-                        <option value="expansion" className="bg-black">Capacity Expansion</option>
-                        <option value="maintenance" className="bg-black">Maintenance Program</option>
+                        <option value="" className="bg-black text-white">Select project type</option>
+                        <option value="new-plant" className="bg-black text-white">New Plant</option>
+                        <option value="retrofit" className="bg-black text-white">Retrofit / Upgrade</option>
+                        <option value="expansion" className="bg-black text-white">Capacity Expansion</option>
+                        <option value="maintenance" className="bg-black text-white">Maintenance Program</option>
                       </select>
                     </div>
 
-                    {/* Capacity */}
                     <div className="flex flex-col gap-2">
                       <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Capacity (TPH)</label>
                       <input type="text" name="capacity" value={formData.capacity} onChange={handleChange} required placeholder="e.g., 500 TPH" className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-yellow-400 outline-none transition-colors" />
@@ -111,36 +110,32 @@ const Contact = () => {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Location */}
                     <div className="flex flex-col gap-2">
                       <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Location</label>
                       <input type="text" name="location" value={formData.location} onChange={handleChange} required placeholder="City, Country" className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-yellow-400 outline-none transition-colors" />
                     </div>
 
-                    {/* New Plant / Retrofit */}
                     <div className="flex flex-col gap-2">
                       <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">New Plant / Retrofit</label>
                       <select name="plantType" value={formData.plantType} onChange={handleChange} required className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-yellow-400 outline-none transition-colors">
-                        <option value="" className="bg-black">Select Option</option>
-                        <option value="new" className="bg-black">New Plant</option>
-                        <option value="retrofit" className="bg-black">Retrofit Existing</option>
+                        <option value="" className="bg-black text-white">Select Option</option>
+                        <option value="new" className="bg-black text-white">New Plant</option>
+                        <option value="retrofit" className="bg-black text-white">Retrofit Existing</option>
                       </select>
                     </div>
                   </div>
 
-                  {/* Upload Drawings */}
                   <div className="flex flex-col gap-2">
                     <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Upload Drawings / RFQ</label>
-                    <input type="file" name="drawings" onChange={handleChange} className="bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs file:bg-yellow-400 file:border-0 file:rounded file:px-3 file:py-1 file:font-black file:uppercase file:mr-4" />
+                    <input type="file" name="drawings" onChange={handleChange} className="bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs file:bg-yellow-400 file:border-0 file:rounded file:px-3 file:py-1 file:font-black file:uppercase file:mr-4 cursor-pointer" />
                   </div>
 
-                  {/* Message */}
                   <div className="flex flex-col gap-2">
                     <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Message</label>
                     <textarea name="message" value={formData.message} onChange={handleChange} required rows="4" placeholder="Describe your project requirements..." className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-yellow-400 outline-none transition-colors resize-none" />
                   </div>
 
-                  <button type="submit" className="w-full bg-yellow-400 text-black font-black py-5 rounded-2xl hover:bg-yellow-300 transition-all uppercase tracking-[0.2em] text-sm shadow-xl">
+                  <button type="submit" className="w-full bg-yellow-400 text-black font-black py-4 rounded-2xl hover:bg-yellow-300 transition-all uppercase tracking-[0.2em] text-sm shadow-xl mt-4">
                     Submit Enquiry
                   </button>
                 </form>

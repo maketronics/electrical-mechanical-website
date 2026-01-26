@@ -20,9 +20,10 @@ const WhyMaketronics = () => {
         >
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#050505]"></div>
           
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-20">
+          {/* Reduced pt-20 to pt-12 to lift the entire text block */}
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-12">
             <div className="max-w-4xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-yellow-400/30 bg-yellow-400/10 text-yellow-400 text-[10px] font-bold uppercase tracking-[0.3em] mb-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-yellow-400/30 bg-yellow-400/10 text-yellow-400 text-[10px] font-bold uppercase tracking-[0.3em] mb-6">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-400"></span>
@@ -30,14 +31,16 @@ const WhyMaketronics = () => {
                 The Advantage
               </div>
               
-              <h1 className="text-6xl md:text-7xl lg:text-9xl font-black text-white leading-[0.9] mb-10 tracking-tighter uppercase italic">
+              {/* Reduced from lg:text-9xl to lg:text-7xl to prevent vertical overflow */}
+              <h1 className="text-6xl md:text-7xl lg:text-7xl font-black text-white leading-[1.05] mb-8 tracking-tighter uppercase italic">
                 Why <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
                   Maketronics
                 </span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-gray-400 max-w-2xl font-light leading-relaxed border-l-2 border-yellow-400/50 pl-8 italic">
+              {/* Adjusted padding and font size for better vertical fit */}
+              <p className="text-lg md:text-xl text-gray-400 max-w-2xl font-light leading-relaxed border-l-2 border-yellow-400/50 pl-6 italic">
                 We bridge the gap between machine supply and site performance through unified mechanical and electrical engineering.
               </p>
             </div>

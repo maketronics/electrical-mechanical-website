@@ -20,24 +20,31 @@ const MechanicalSystems = () => {
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#050505]"></div>
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-20">
+          
+          {/* Reduced pt-20 to pt-12 to lift content higher */}
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-12">
             <div className="max-w-4xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-yellow-400/30 bg-yellow-400/10 text-yellow-400 text-xs font-bold uppercase tracking-widest mb-6 animate-fade-in">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-yellow-400/30 bg-yellow-400/10 text-yellow-400 text-xs font-bold uppercase tracking-widest mb-4 animate-fade-in">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-400"></span>
                 </span>
                 Mechanical Integration
               </div>
-              <h1 className="text-5xl md:text-6xl lg:text-8xl font-black text-white leading-[1.1] mb-8 tracking-tighter">
+
+              {/* Reduced size from text-8xl to 7xl for better fit */}
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6 tracking-tighter">
                 Mechanical Systems for <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
                   Crushing & Screening
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-300 mb-6 max-w-2xl font-light leading-relaxed">
+
+              {/* Reduced text size and margin */}
+              <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl font-light leading-relaxed">
                 Engineering and integration of complete mechanical systems built for real site conditions.
               </p>
+
               <div className="flex flex-wrap gap-5">
                 <PrimaryCTA />
                 <SecondaryCTA />
@@ -45,26 +52,25 @@ const MechanicalSystems = () => {
             </div>
           </div>
         </section>
-{/* 3. Systems Breakdown - Interactive Technical Grid */}
-{/* 3. Systems Breakdown - Tall Technical Cards */}
-<section className="py-24 bg-[#080808] border-y border-white/5">
+{/* 3. Systems Breakdown - Viewport Optimized & Bottom-Pinned Tags */}
+<section className="py-16 bg-[#080808] border-y border-white/5">
   <div className="max-w-7xl mx-auto px-6">
     
     {/* Section Header */}
-    <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+    <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
       <div>
-        <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-yellow-400 mb-4">Engineering Catalog</h2>
-        <h3 className="text-5xl font-black tracking-tighter uppercase italic">System <span className="text-gray-500">Breakdown</span></h3>
+        <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-yellow-400 mb-2">Engineering Catalog</h2>
+        <h3 className="text-4xl md:text-5xl font-black tracking-tighter uppercase italic">System <span className="text-gray-500">Breakdown</span></h3>
       </div>
       <div className="hidden lg:block text-right">
-        <p className="text-gray-500 text-sm font-mono uppercase tracking-widest leading-relaxed">
+        <p className="text-gray-500 text-[10px] font-mono uppercase tracking-widest leading-tight">
           Integrated Mechanical <br /> Infrastructure
         </p>
       </div>
     </div>
 
-    {/* The Grid: 3-Column layout with longer image focus */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    {/* The Grid: 3-Column layout with height-pinned tags */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {[
         {
           name: "Primary Receiving Hopper",
@@ -147,43 +153,44 @@ const MechanicalSystems = () => {
       ].map((system, i) => (
         <div 
           key={i} 
-          className="group bg-[#0a0a0a] rounded-[2rem] overflow-hidden border border-white/5 hover:border-yellow-400/40 transition-all duration-500 flex flex-col shadow-2xl"
+          className="group bg-[#0a0a0a] rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-yellow-400/40 transition-all duration-500 flex flex-col shadow-2xl h-[660px]" 
         >
-          {/* Top: Longer Image Section (h-80 for more visibility) */}
-          <div className="h-80 relative overflow-hidden">
+          {/* Top: Image Section - Fixed Height to prevent overflow */}
+          <div className="h-56 relative overflow-hidden bg-[#111]">
             <div 
               className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
               style={{ backgroundImage: `url('${system.image}')` }}
             ></div>
-            {/* Darker Bottom Gradient for Text Contrast */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent"></div>
             
             <div className="absolute bottom-4 left-6">
               <span className="text-yellow-400 font-mono text-[10px] uppercase tracking-widest bg-black/40 backdrop-blur-sm px-2 py-1 rounded">
-                System 0{i + 1}
+                SEC-0{i + 1}
               </span>
             </div>
           </div>
 
-          {/* Bottom: Content Section */}
-          <div className="p-8 flex-grow flex flex-col">
-            <h4 className="text-2xl font-bold mb-2 tracking-tighter uppercase italic group-hover:text-yellow-400 transition-colors">
-              {system.name}
-            </h4>
-            <p className="text-gray-400 text-xs italic mb-6 leading-relaxed border-l-2 border-yellow-400/50 pl-4">
-              {system.purpose}
-            </p>
+          {/* Bottom: Content Section - justify-between pins tags to bottom */}
+          <div className="p-8 flex-grow flex flex-col justify-between">
+            <div>
+              <h4 className="text-2xl font-bold mb-2 tracking-tighter uppercase italic group-hover:text-yellow-400 transition-colors">
+                {system.name}
+              </h4>
+              <p className="text-gray-400 text-sm italic mb-6 leading-relaxed border-l-2 border-yellow-400/50 pl-4">
+                {system.purpose}
+              </p>
 
-            <ul className="space-y-3 mb-8 flex-grow">
-              {system.bullets.map((bullet, bid) => (
-                <li key={bid} className="flex items-start gap-2 text-[12px] text-gray-300 leading-tight">
-                  <div className="h-1 w-1 rounded-full bg-yellow-400 mt-1.5 flex-shrink-0"></div>
-                  {bullet}
-                </li>
-              ))}
-            </ul>
+              <ul className="space-y-3">
+                {system.bullets.map((bullet, bid) => (
+                  <li key={bid} className="flex items-start gap-3 text-[14px] text-gray-300 leading-snug">
+                    <div className="h-1.5 w-1.5 rounded-full bg-yellow-400 mt-1.5 flex-shrink-0"></div>
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-            {/* Outcome Tags */}
+            {/* Tags: Strictly pinned to the bottom of the box */}
             <div className="flex flex-wrap gap-2 pt-6 border-t border-white/5">
               {system.tags.map((tag, tid) => (
                 <span key={tid} className="text-[10px] font-bold uppercase tracking-widest text-yellow-400/80 bg-yellow-400/5 border border-yellow-400/10 px-3 py-1 rounded">

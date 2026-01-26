@@ -5,13 +5,13 @@ import SecondaryCTA from '../components/SecondaryCTA';
 
 const ExecutionSupport = () => {
   return (
-    <div className="bg-[#050505] text-white selection:bg-yellow-400 selection:text-black">
+    <div className="bg-[#050505] text-white selection:bg-yellow-400 selection:text-black font-sans antialiased">
       <Header />
       
       <main>
-        {/* Hero Section - Following Mechanical Pattern */}
+        {/* 1. Hero Section - Matching Mechanical Pattern */}
         <section
-          className="relative min-h-screen flex items-center overflow-hidden"
+          className="relative min-h-[85vh] flex items-center overflow-hidden"
           style={{
             backgroundImage: "linear-gradient(to right, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0.4) 100%), url('/hero-bg.png')",
             backgroundSize: 'cover',
@@ -20,7 +20,8 @@ const ExecutionSupport = () => {
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#050505]"></div>
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-20">
+          
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-12">
             <div className="max-w-4xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-yellow-400/30 bg-yellow-400/10 text-yellow-400 text-xs font-bold uppercase tracking-widest mb-6 animate-fade-in">
                 <span className="relative flex h-2 w-2">
@@ -29,34 +30,32 @@ const ExecutionSupport = () => {
                 </span>
                 Lifecycle Responsibility
               </div>
-              <h1 className="text-5xl md:text-6xl lg:text-8xl font-black text-white leading-[1.1] mb-8 tracking-tighter">
+              
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6 tracking-tighter uppercase italic">
                 Execution & <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
                   Site Support
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-300 mb-6 max-w-2xl font-light leading-relaxed">
+
+              <p className="text-lg md:text-xl text-gray-300 max-w-2xl font-light leading-relaxed italic border-l-2 border-yellow-400/50 pl-6">
                 From concept to commissioning and beyond — we remain responsible throughout the system lifecycle.
               </p>
-              <div className="flex flex-wrap gap-5">
-                <PrimaryCTA />
-                <SecondaryCTA />
-              </div>
             </div>
           </div>
         </section>
 
-        {/* 2. Execution Model - Vertical Arrow Flow Pattern */}
+        {/* 2. Execution Model - Vertical Arrow Flow */}
         <section className="py-24 bg-[#080808] border-y border-white/5 relative">
           <div className="max-w-7xl mx-auto px-6">
             
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-6">
               <div>
-                <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-yellow-400 mb-4">The Process</h2>
-                <h3 className="text-5xl font-black tracking-tighter uppercase italic">Execution <span className="text-gray-500">Model</span></h3>
+                <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-yellow-400 mb-2">The Process</h2>
+                <h3 className="text-4xl md:text-5xl font-black tracking-tighter uppercase italic">Execution <span className="text-gray-500">Model</span></h3>
               </div>
               <div className="hidden lg:block text-right">
-                <p className="text-gray-500 text-sm font-mono uppercase tracking-widest leading-relaxed">
+                <p className="text-gray-500 text-[10px] font-mono uppercase tracking-widest leading-tight">
                   Systematic Project <br /> Delivery Framework
                 </p>
               </div>
@@ -65,11 +64,11 @@ const ExecutionSupport = () => {
             {/* Vertical Timeline Container */}
             <div className="relative pl-12 md:pl-0">
               {/* Central Spine Arrow */}
-              <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-yellow-400 via-white/20 to-transparent md:-translate-x-1/2">
-                <div className="absolute bottom-0 -left-[6px] w-4 h-4 border-b-2 border-r-2 border-yellow-400 rotate-45"></div>
+              <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-yellow-400 via-white/10 to-transparent md:-translate-x-1/2">
+                <div className="absolute bottom-0 -left-[5px] w-3 h-3 border-b border-r border-yellow-400 rotate-45"></div>
               </div>
 
-              <div className="space-y-32">
+              <div className="space-y-24 md:space-y-32">
                 {[
                   { step: "01", title: "Requirement Understanding", desc: "Site assessment, capacity analysis, and operational constraints evaluation to ensure engineering alignment with site reality." },
                   { step: "02", title: "System Design", desc: "Complete engineering featuring structural analysis and equipment coordination for total system performance." },
@@ -79,18 +78,18 @@ const ExecutionSupport = () => {
                   { step: "06", title: "Post-Installation Support", desc: "Ongoing optimization, preventive maintenance programs, and dedicated lifecycle support to ensure long-term uptime." }
                 ].map((item, i) => (
                   <div key={i} className={`relative flex flex-col md:flex-row items-start md:items-center ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                    {/* Bold Node Dot */}
-                    <div className="absolute left-[-42px] md:left-1/2 md:-translate-x-1/2 w-14 h-14 bg-[#050505] border-2 border-yellow-400 rounded-2xl z-10 flex items-center justify-center font-black text-xl text-yellow-400 shadow-[0_0_20px_rgba(250,204,21,0.3)] transition-all group hover:scale-110">
+                    {/* Node Dot - Pinned to Spine */}
+                    <div className="absolute left-[-41px] md:left-1/2 md:-translate-x-1/2 w-12 h-12 bg-[#050505] border border-yellow-400/50 rounded-xl z-10 flex items-center justify-center font-black text-lg text-yellow-400 shadow-[0_0_15px_rgba(250,204,21,0.2)]">
                       {item.step}
                     </div>
 
                     {/* Content Card */}
                     <div className={`w-full md:w-[45%] ${i % 2 === 0 ? 'md:text-left' : 'md:text-right'} mt-4 md:mt-0`}>
-                      <div className="group bg-[#0a0a0a] border border-white/10 p-10 rounded-[2.5rem] hover:border-yellow-400/50 transition-all duration-500 shadow-xl">
-                        <h4 className="text-xl md:text-2xl font-black uppercase tracking-widest mb-4 text-white group-hover:text-yellow-400 transition-colors">
+                      <div className="group bg-[#0a0a0a] border border-white/5 p-8 md:p-10 rounded-[2rem] hover:border-yellow-400/30 transition-all duration-500">
+                        <h4 className="text-xl md:text-2xl font-black uppercase tracking-tight mb-4 text-white group-hover:text-yellow-400 transition-colors italic">
                           {item.title}
                         </h4>
-                        <p className="text-gray-300 text-base md:text-lg leading-relaxed font-light">
+                        <p className="text-gray-400 text-sm md:text-base leading-relaxed font-light">
                           {item.desc}
                         </p>
                       </div>
@@ -104,32 +103,32 @@ const ExecutionSupport = () => {
           </div>
         </section>
 
-        {/* 3. Responsibility Statement - Bold Text Pattern */}
-        <section className="py-40 bg-[#050505]">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="max-w-5xl mx-auto border-l-4 border-yellow-400 pl-12 md:pl-24 py-8">
-              <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-yellow-400 mb-12">Responsibility</h2>
-              <p className="text-3xl md:text-4xl lg:text-5xl text-gray-200 font-light leading-tight mb-12 italic">
-                Equipment is sourced from proven manufacturers. <span className="text-white font-black underline decoration-yellow-400 decoration-4 underline-offset-[12px]">Maketronics does not sell branded products.</span>
+        {/* 3. Responsibility Statement - High Impact */}
+        <section className="py-32 bg-[#050505]">
+          <div className="max-w-7xl mx-auto px-6 text-center md:text-left">
+            <div className="max-w-5xl mx-auto border-l-0 md:border-l-2 border-yellow-400 md:pl-16 py-4">
+              <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-yellow-400 mb-10">Integration Responsibility</h2>
+              <p className="text-2xl md:text-4xl lg:text-5xl text-gray-200 font-light leading-tight mb-10 italic tracking-tight">
+                Equipment is sourced from proven manufacturers. <span className="text-white font-black underline decoration-yellow-400/40 decoration-2 underline-offset-8">Maketronics does not sell branded products.</span>
               </p>
-              <p className="text-xl md:text-2xl text-gray-400 font-light leading-relaxed max-w-4xl">
+              <p className="text-lg md:text-xl text-gray-500 font-light leading-relaxed max-w-4xl">
                 Maketronics owns system integration, performance, and site execution responsibility. We coordinate equipment supply, engineer interfaces, and ensure systems perform as designed on site.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Final CTA - Matching Reference */}
+        {/* Final CTA */}
         <section className="py-24">
           <div className="max-w-5xl mx-auto px-6">
-            <div className="bg-yellow-400 rounded-[3rem] p-16 text-center text-black shadow-2xl relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-80 h-80 bg-white/30 blur-[120px] rounded-full group-hover:scale-125 transition-transform duration-1000"></div>
-              <h2 className="text-5xl md:text-6xl font-black mb-8 tracking-tighter uppercase leading-none relative z-10">
+            <div className="bg-yellow-400 rounded-[2.5rem] p-12 md:p-16 text-center text-black shadow-2xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-80 h-80 bg-white/20 blur-[100px] rounded-full group-hover:scale-110 transition-transform duration-1000"></div>
+              <h2 className="text-4xl md:text-6xl font-black mb-10 tracking-tighter uppercase leading-none relative z-10 italic">
                 Let's Execute a System <br /> That Performs on Site
               </h2>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
-                <PrimaryCTA className="!bg-black !text-white !px-12 !py-4" />
-                <SecondaryCTA className="!border-black/30 !text-black !px-12 !py-4" />
+              <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+                <PrimaryCTA className="!bg-black !text-white !px-12 !py-4 !text-xs" />
+                <SecondaryCTA className="!border-black/20 !text-black !px-12 !py-4 !text-xs" />
               </div>
             </div>
           </div>

@@ -10,7 +10,7 @@ const Home = () => {
       <Header />
       
       <main>
-        {/* Hero Section */}
+        {/* Hero Section - Optimized for Button Visibility */}
         <section
           className="relative min-h-screen flex items-center overflow-hidden"
           style={{
@@ -21,9 +21,9 @@ const Home = () => {
         >
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#050505]"></div>
           
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-20">
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-12"> {/* Reduced pt-20 to pt-12 */}
             <div className="max-w-4xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-yellow-400/30 bg-yellow-400/10 text-yellow-400 text-xs font-bold uppercase tracking-widest mb-6 animate-fade-in">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-yellow-400/30 bg-yellow-400/10 text-yellow-400 text-xs font-bold uppercase tracking-widest mb-4 animate-fade-in">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-400"></span>
@@ -31,19 +31,19 @@ const Home = () => {
                 Engineering Excellence
               </div>
               
-              <h1 className="text-5xl md:text-6xl lg:text-8xl font-black text-white leading-[1.1] mb-8 tracking-tighter">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6 tracking-tighter">
                 Complete System Solutions for <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
                   Crushing & Screening
                 </span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-gray-300 mb-6 max-w-2xl font-light leading-relaxed">
+              <p className="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl font-light leading-relaxed">
                 Engineering, supplying, and supporting integrated mechanical and electrical systems
                 for demanding material handling environments.
               </p>
 
-              <p className="text-sm text-gray-400 font-mono mb-10 border-l-2 border-yellow-400 pl-4">
+              <p className="text-xs text-gray-400 font-mono mb-8 border-l-2 border-yellow-400 pl-4 uppercase tracking-wider">
                 Independent system solutions and integration partner.
               </p>
 
@@ -55,29 +55,34 @@ const Home = () => {
           </div>
         </section>
 
-        {/* 4 Pillars Section */}
-        <section className="relative py-32 -mt-20 z-20">
+        {/* 4 Pillars Section - Added "What We Do" Heading */}
+        <section className="relative py-24 -mt-20 z-20">
           <div className="max-w-7xl mx-auto px-6">
+            <div className="mb-12">
+              <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-yellow-400 mb-2">Capabilities</h2>
+              <h3 className="text-4xl md:text-5xl font-black tracking-tighter uppercase">What We <span className="text-gray-500 text-outline-white">Do</span></h3>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
                 { 
                   title: "System Design & Engineering", 
-                  desc: "Complete system architecture and engineering solutions.", 
+                  desc: "Complete system architecture and engineering solutions tailored to site requirements.", 
                   icon: "M9 12h6m-6 4h6m2 5H7a2-2V5a2-2h5.586a1-1.293l5.414 5.414a1-1.707V19a2-2 2z" 
                 },
                 { 
-                  title: "Mechanical Integration", 
-                  desc: "Seamless integration of mechanical components and systems.", 
+                  title: "Mechanical System Integration", 
+                  desc: "Seamless integration of high-performance mechanical components and heavy-duty systems.", 
                   icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" 
                 },
                 { 
-                  title: "Electrical & Automation", 
-                  desc: "Comprehensive electrical systems and automation integration.", 
+                  title: "Electrical & Automation Solutions", 
+                  desc: "Advanced control systems, PLC logic, and comprehensive electrical integration.", 
                   icon: "M13 10V3L4 14h7v7l9-11h-7z" 
                 },
                 { 
-                  title: "Site Support", 
-                  desc: "On-site support, commissioning, and lifecycle operations.", 
+                  title: "Site Support & Commissioning", 
+                  desc: "On-site expert support, lifecycle operations, and technical commissioning.", 
                   icon: "M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" 
                 }
               ].map((pillar, i) => (
