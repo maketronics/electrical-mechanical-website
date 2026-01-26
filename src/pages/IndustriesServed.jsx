@@ -9,7 +9,7 @@ const IndustriesServed = () => {
       <Header />
       
       <main>
-        {/* 1. Hero Section - Synchronized Height & Typography */}
+        {/* 1. Hero Section */}
         <section
           className="relative min-h-[85vh] flex items-center overflow-hidden"
           style={{
@@ -23,7 +23,6 @@ const IndustriesServed = () => {
           
           <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-12">
             <div className="max-w-4xl">
-              {/* Standardized Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-yellow-400/30 bg-yellow-400/10 text-yellow-400 text-xs font-bold uppercase tracking-widest mb-6">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
@@ -32,7 +31,6 @@ const IndustriesServed = () => {
                 Sector Expertise
               </div>
               
-              {/* Heading - text-7xl matches Mechanical Systems perfectly */}
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6 tracking-tighter uppercase italic">
                 Industries <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
@@ -40,7 +38,6 @@ const IndustriesServed = () => {
                 </span>
               </h1>
 
-              {/* Standardized Paragraph size */}
               <p className="text-lg md:text-xl text-gray-300 max-w-2xl font-light leading-relaxed italic border-l-2 border-yellow-400/50 pl-6">
                 Engineering solutions built for demanding material handling operations across the global mineral and aggregate sectors.
               </p>
@@ -139,47 +136,25 @@ const IndustriesServed = () => {
           </div>
         </section>
 
-        {/* 3. Methodology Line - Unified with other pages */}
-        <section className="py-24 bg-[#050505] overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
-              <div>
-                <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-yellow-400 mb-4">Methodology</h2>
-                <h3 className="text-5xl font-black tracking-tighter uppercase italic">Our <span className="text-gray-500">Approach</span></h3>
-              </div>
-              <div className="hidden lg:block h-[1px] flex-grow mx-12 bg-white/10 mb-4"></div>
-            </div>
-
-            <div className="relative">
-              <div className="absolute top-[27px] left-0 w-full h-[1px] bg-white/5 hidden lg:block"></div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-                {[
-                  { step: "01", title: "Site Insight", desc: "Mapping geological challenges and production goals." },
-                  { step: "02", title: "Custom Design", desc: "Mechanical and electrical alignment for seamless flow." },
-                  { step: "03", title: "Supply Chain", desc: "Strategic component sourcing and fabrication." },
-                  { step: "04", title: "Plant Support", desc: "Ongoing optimization to ensure long-term ROI." }
-                ].map((item, i) => (
-                  <div key={i} className="group relative">
-                    <div className="flex items-center gap-4 mb-8">
-                      <div className="relative z-10 w-14 h-14 bg-[#050505] border border-white/10 rounded-xl flex items-center justify-center group-hover:border-yellow-400/50 transition-all duration-500">
-                        <span className="text-xl font-black text-white group-hover:text-yellow-400 transition-colors">{item.step}</span>
-                      </div>
-                    </div>
-                    <div className="space-y-3">
-                      <h4 className="text-sm font-bold uppercase tracking-widest text-white group-hover:text-yellow-400 transition-colors">{item.title}</h4>
-                      <p className="text-gray-400 text-xs leading-relaxed font-light pr-4">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+        {/* 3. Philosophy Line - Improved Visibility */}
+        <section className="py-32 bg-[#050505]">
+          <div className="max-w-7xl mx-auto px-6 text-center">
+            <div className="inline-block relative">
+              {/* Top Accent Line */}
+              <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-16 h-[1px] bg-yellow-400"></div>
+              
+              <p className="text-2xl md:text-3xl lg:text-4xl text-gray-400 font-light leading-snug max-w-4xl mx-auto italic tracking-tight">
+                "Our solutions are engineered around <span className="text-white font-bold underline decoration-yellow-400/40 decoration-2 underline-offset-8">real operating challenges</span>, not theoretical assumptions."
+              </p>
             </div>
           </div>
         </section>
 
         {/* 4. Final CTA */}
-        <section className="py-24">
+        <section className="pb-24">
           <div className="max-w-5xl mx-auto px-6">
-            <div className="bg-yellow-400 rounded-[2.5rem] p-16 text-center text-black shadow-2xl relative overflow-hidden">
+            <div className="bg-yellow-400 rounded-[2.5rem] p-16 text-center text-black shadow-2xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-80 h-80 bg-white/20 blur-[100px] rounded-full group-hover:scale-110 transition-transform duration-1000"></div>
               <div className="relative z-10">
                 <h2 className="text-5xl md:text-6xl font-black mb-8 tracking-tighter uppercase italic leading-none">
                   Ready to Discuss <br /> Your Industry?
