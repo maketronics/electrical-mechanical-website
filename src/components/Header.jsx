@@ -25,71 +25,56 @@ const Header = () => {
   ];
 
   const isActive = (href) =>
-    href === '/'
-      ? location.pathname === '/'
-      : location.pathname.startsWith(href);
+    href === '/' ? location.pathname === '/' : location.pathname.startsWith(href);
 
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-black/80 backdrop-blur border-b border-gray-800'
-          : 'bg-black'
+        isScrolled ? 'bg-black/90 backdrop-blur-md border-b border-white/10' : 'bg-black'
       }`}
     >
-      <div className="w-full px-8">
-        <div className="flex items-center justify-between h-[72px]">
+      <div className="w-full px-6 lg:px-10">
+        <div className="flex items-center h-[72px]">
+          
+          {/* LOGO - Far left */}
+          <div className="flex-shrink-0">
+            <Link
+              to="/"
+              className="text-2xl font-black tracking-tighter text-yellow-400 hover:text-yellow-300 transition-colors"
+            >
+              MAKETRONICS
+            </Link>
+          </div>
 
-          {/* LOGO */}
-          <Link
-            to="/"
-            className="text-2xl font-black tracking-tight text-yellow-400 hover:text-yellow-300 transition-colors"
-          >
-            MAKETRONICS
-          </Link>
+          {/* NAV - ml-auto here pushes the links and CTA to the right together */}
+          <nav className="hidden xl:flex items-center ml-auto gap-5 mr-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.href}
+                className={`relative text-[10px] font-bold uppercase tracking-wider transition-colors whitespace-nowrap py-1 ${
+                  isActive(link.href) ? 'text-yellow-400' : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                {link.name}
+                {isActive(link.href) && (
+                  <span className="absolute -bottom-1 left-0 w-full h-[1.5px] bg-yellow-400" />
+                )}
+              </Link>
+            ))}
+          </nav>
 
-          {/* DESKTOP NAV */}
-          <div className="hidden lg:flex items-center">
-            <nav className="flex items-center gap-8 mr-10">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  aria-current={isActive(link.href) ? 'page' : undefined}
-                  className={`relative text-[11px] font-semibold uppercase tracking-widest transition-colors ${
-                    isActive(link.href)
-                      ? 'text-yellow-400'
-                      : 'text-gray-300 hover:text-yellow-400'
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
-
+          {/* CTA - Now sits immediately after the Nav links */}
+          <div className="hidden xl:block flex-shrink-0">
             <PrimaryCTA />
           </div>
 
-          {/* MOBILE MENU BUTTON */}
-          <button
-            className="lg:hidden p-2 text-gray-300 hover:text-yellow-400 transition-colors"
-            aria-label="Open menu"
-          >
-            <svg
-              className="w-7 h-7"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
+          {/* MOBILE BUTTON */}
+          <button className="xl:hidden ml-auto p-2 text-gray-300">
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
-
         </div>
       </div>
     </header>
