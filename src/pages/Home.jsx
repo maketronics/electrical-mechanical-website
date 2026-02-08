@@ -49,7 +49,6 @@ const Home = () => {
 
               <div className="flex flex-wrap gap-5">
                 <PrimaryCTA />
-                <SecondaryCTA />
               </div>
             </div>
           </div>

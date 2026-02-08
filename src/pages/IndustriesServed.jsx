@@ -97,11 +97,11 @@ const IndustriesServed = () => {
                       style={{ backgroundImage: `url('${item.image}')` }}
                     ></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent"></div>
-                    <div className="absolute bottom-4 left-6">
+                    {/*<div className="absolute bottom-4 left-6">
                       <span className="text-yellow-400 font-mono text-[10px] uppercase tracking-widest bg-black/60 backdrop-blur-sm px-2 py-1 rounded">
                         SEC-0{i + 1}
                       </span>
-                    </div>
+                    </div> */}
                   </div>
 
                   <div className="p-8 flex-grow flex flex-col justify-between">
