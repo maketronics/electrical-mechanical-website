@@ -2,6 +2,13 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PrimaryCTA from '../components/PrimaryCTA';
 import SecondaryCTA from '../components/SecondaryCTA';
+import feedHopperImg from "../assets/images/feed-hopper.jpg";
+import primaryHopperImg from "../assets/images/primary-receiving-hopper.jpg";
+import coneVsiImg from "../assets/images/cone&VSI.jpg";
+import screenStationImg from "../assets/images/screen-station.jpg";
+import surgeHopperImg from "../assets/images/surge-hopper.jpg";
+import conveyorsImg from "../assets/images/conveyors1.jpg";
+
 
 const MechanicalSystems = () => {
   return (
@@ -75,78 +82,87 @@ const MechanicalSystems = () => {
         {
           name: "Primary Receiving Hopper",
           purpose: "High-capacity entry point for truck or loader feed.",
-          image: "/hopper.png",
+          image: primaryHopperImg,
           bullets: [
-            "Structural load-distribution frame",
-            "Grizzly or screen deck sizing",
-            "Wear-resistant impact liners",
-            "Anti-bridging discharge geometry",
-            "Integrated safety guards"
+            "Heavy Duty Rock Box on the top",
+            "Sloped Sides at the bottom",
+            "Sloped sides will be lined with 10mm thick 400BHN Liner",
+            "Chain Curtain for safety",
+            "Integrated station for Grizzly Feeder"
           ],
           tags: ["Wear Reduction", "Uptime"]
         },
         {
           name: "Feed Hopper + Grizzly + Jaw Station",
           purpose: "Integrated primary crushing and feed management.",
-          image: "/feedHopper.png",
+          image: feedHopperImg,
           bullets: [
-            "Modular bolted chassis design",
-            "High-impact station protection",
-            "Crusher interface coordination",
-            "Ergonomic maintenance access",
-            "Perimeter safety walkways"
+            "Fabricated Frame for Grizzly Feeder & Jaw Crusher",
+            "Bolted Design for ease of  transportation & assembly",
+            "Operation Platform all around the jaw crusher",
+            "Feed & discharge chute for Jaw Crusher",
+            "Wear liner of high impact area",
+            "Rock Box design for better life"
           ],
           tags: ["Modular", "Safety"]
         },
         {
           name: "Cone & VSI Stations",
           purpose: "Secondary/tertiary stations with precision mounting.",
-          image: "/cone.png",
+          image: coneVsiImg,
           bullets: [
-            "Custom model-specific frames",
-            "Maintenance service gantries",
-            "Abrasion-resistant chutes",
-            "Rotor box wear protection",
-            "Auxiliary service access"
+            "Bolted Frame design for crusher mounting",
+            "Operation platform  for ease of operation & maintenance",
+            "Guard for crusher drive",
+            "Station for mounting auxiliary panel/Lub. Tank",
+            "Rock Box discharge Chute for all the cone crushers",
+            "Discharge Chute lining optional with 8mm thick 400BHN Liner"
           ],
           tags: ["Precision", "Capacity"]
         },
         {
           name: "Screen Stations",
           purpose: "Integrated screening stations with structural mounting.",
-          image: "/screenStations.png",
+          image: screenStationImg,
           bullets: [
-            "High-frequency bolted design",
-            "High-BHN lined discharge chutes",
-            "Drive station safety guarding",
-            "Feeder rotation service access",
-            "Safety-grated cleanouts"
+            "Completely Bolted station for all the screens",
+            "Operation platform all around the screen",
+            "Roll-away chute for easy replacement of wire meshes",
+            "Guards for belt drives",
+            "Sloped planes of roll-away chute will be lined with 8mm 400BHN liner",
+            "Man-hole on both the sides of roll-away chutes",
+            "Flap-gate system",
+            "Product chutes at the bottom with 8mm 400BHN liner"
           ],
           tags: ["Sizing", "Efficiency"]
         },
         {
           name: "Surge Hoppers",
           purpose: "Material buffering for continuous plant operation.",
-          image: "/surgeHoppers.png",
+          image: surgeHopperImg,
           bullets: [
-            "Regulated discharge storage",
-            "Critical flow wear liners",
-            "Feeder integration logic",
-            "Digital level monitoring",
-            "Reinforced platforms"
+            "Pyramid shape hopper for homogenous discharge",
+            "Rock Box design for minimal wear",
+            "Inclined plates on sloped sides to form Rock Box",
+            "Integrated station for Pan Feeder"
           ],
           tags: ["Stability", "Control"]
         },
         {
           name: "Conveyors",
           purpose: "Transport systems with structural supports and safety.",
-          image: "/conveyors.png",
+          image: conveyorsImg,
           bullets: [
-            "Engineered support gantries",
-            "Impact transfer point chutes",
-            "Automated belt tensioning",
-            "Safety pull-wire integration",
-            "Automation control interface"
+            "Plate bend high-profile section for all conveyors",
+            "25% additional capacity over and above the Rated Capacity",
+            "Geared motor drive for all conveyors",
+            "Nord Make geared motors with brake for all Conveyors",
+            "Tail Pulley Guard & side guards upto skirt board length",
+            "Pull Chord Switch on one side of all conveyors",
+            "Rubber lagged heavy duty drive pulley for all conveyors",
+            "Primary Scrapper on the drive side & V-plough Scrapper on the tail side",
+            "Heavy Duty Carrying Rollers with SKF/FAG make anti-seize bearings",
+            "DODGE/NTN make bearing units for head pulley mounting of conveyors"
           ],
           tags: ["Reliable", "Safety"]
         }
@@ -156,22 +172,23 @@ const MechanicalSystems = () => {
           className="group bg-[#0a0a0a] rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-yellow-400/40 transition-all duration-500 flex flex-col shadow-2xl h-[660px]" 
         >
           {/* Top: Image Section - Fixed Height to prevent overflow */}
-          <div className="h-56 relative overflow-hidden bg-[#111]">
+          <div className="h-56 relative overflow-hidden bg-[#111] flex-shrink-0">
             <div 
               className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
-              style={{ backgroundImage: `url('${system.image}')` }}
+              style={{ backgroundImage: `url(${system.image})` }}
+
             ></div>
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent"></div>
             
-            <div className="absolute bottom-4 left-6">
+            {/*<div className="absolute bottom-4 left-6">
               <span className="text-yellow-400 font-mono text-[10px] uppercase tracking-widest bg-black/40 backdrop-blur-sm px-2 py-1 rounded">
                 SEC-0{i + 1}
               </span>
-            </div>
+            </div> */}
           </div>
 
           {/* Bottom: Content Section - justify-between pins tags to bottom */}
-          <div className="p-8 flex-grow flex flex-col justify-between">
+          <div className="p-8 flex-grow flex flex-col justify-between overflow-y-auto scrollbar-thin scrollbar-thumb-yellow-400/30">
             <div>
               <h4 className="text-2xl font-bold mb-2 tracking-tighter uppercase italic group-hover:text-yellow-400 transition-colors">
                 {system.name}
@@ -181,13 +198,18 @@ const MechanicalSystems = () => {
               </p>
 
               <ul className="space-y-3">
-                {system.bullets.map((bullet, bid) => (
+                {system.bullets.slice(0, 6).map((bullet, bid) =>  (
                   <li key={bid} className="flex items-start gap-3 text-[14px] text-gray-300 leading-snug">
                     <div className="h-1.5 w-1.5 rounded-full bg-yellow-400 mt-1.5 flex-shrink-0"></div>
                     {bullet}
                   </li>
                 ))}
               </ul>
+              {system.bullets.length > 6 && (
+                <p className="mt-4 text-[11px] uppercase tracking-widest text-yellow-400/70 hover:text-yellow-400 cursor-pointer">
+                     + More specifications available on request
+                </p>
+         )}
             </div>
 
             {/* Tags: Strictly pinned to the bottom of the box */}
