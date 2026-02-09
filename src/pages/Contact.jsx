@@ -55,7 +55,7 @@ const Contact = () => {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('http://localhost:3001/api/send-email', {
+      const response = await fetch('https://electrical-mechanical-website.onrender.com/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
