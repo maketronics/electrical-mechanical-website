@@ -45,7 +45,7 @@ const Header = () => {
               <img 
                 src="/logomain.png" 
                 alt="MAKETRONICS" 
-                className="h-12 w-auto"
+                className="h-8 w-60"
               />
             </Link>
           </div>
