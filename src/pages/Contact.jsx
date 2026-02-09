@@ -2,24 +2,35 @@ import { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
+/* =======================
+   FIELD COMPONENT (FIXED)
+   ======================= */
 const Field = ({ label, type = 'text', ...props }) => (
   <div className="flex flex-col gap-2">
-    <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
+    {/* LABEL – WHITE */}
+    <label className="text-[10px] font-bold uppercase tracking-widest text-white/80">
       {label}
     </label>
+
     {type === 'textarea' ? (
       <textarea
         rows="4"
         {...props}
         className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm
-                   focus:border-yellow-400 outline-none resize-none"
+                   text-white caret-white
+                   placeholder:text-white/40
+                   focus:border-yellow-400 outline-none resize-none
+                   appearance-none"
       />
     ) : (
       <input
         type={type}
         {...props}
         className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm
-                   focus:border-yellow-400 outline-none"
+                   text-white caret-white
+                   placeholder:text-white/40
+                   focus:border-yellow-400 outline-none
+                   appearance-none"
       />
     )}
   </div>
@@ -175,8 +186,9 @@ const Contact = () => {
                 <Field label="Voltage & Frequency" name="voltageFrequency" value={formData.voltageFrequency} onChange={handleChange} />
               </div>
 
+              {/* FILE UPLOAD */}
               <div>
-                <label className="text-[10px] uppercase tracking-widest text-gray-500">
+                <label className="text-[10px] font-bold uppercase tracking-widest text-white/80">
                   Upload Drawings / RFQ
                 </label>
                 <input
@@ -185,6 +197,7 @@ const Contact = () => {
                   multiple
                   onChange={handleChange}
                   className="mt-2 bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs
+                             text-white
                              file:bg-yellow-400 file:border-0 file:rounded
                              file:px-3 file:py-1 file:font-black file:uppercase"
                 />
