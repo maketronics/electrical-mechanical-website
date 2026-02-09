@@ -37,12 +37,16 @@ const Header = () => {
         <div className="flex items-center h-[72px]">
           
           {/* LOGO - Far left */}
-          <div className="flex-shrink-0">
+          <div className="shrink-0">
             <Link
               to="/"
-              className="text-2xl font-black tracking-tighter text-yellow-400 hover:text-yellow-300 transition-colors"
+              className="block"
             >
-              MAKETRONICS
+              <img 
+                src="/logomain.png" 
+                alt="MAKETRONICS" 
+                className="h-8 w-60"
+              />
             </Link>
           </div>
 
@@ -65,7 +69,7 @@ const Header = () => {
           </nav>
 
           {/* CTA - Now sits immediately after the Nav links */}
-          <div className="hidden xl:block flex-shrink-0">
+          <div className="hidden xl:block shrink-0">
             <PrimaryCTA />
           </div>
 
