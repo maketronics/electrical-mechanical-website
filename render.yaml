@@ -1,13 +1,12 @@
 services:
   - type: web
     name: maketronics-server
-    env: node
+    runtime: node
     buildCommand: npm install
     startCommand: npm run server
     envVars:
       - key: NODE_ENV
         value: production
-      # Note: PORT is automatically set by Render, no need to define it here
       - key: SMTP_HOST
         sync: false
       - key: SMTP_PORT
