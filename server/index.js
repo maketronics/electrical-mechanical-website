@@ -8,8 +8,8 @@ import { dirname, join } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Load .env from server directory
-dotenv.config({ path: join(__dirname, '.env') });
+// Load .env from current directory
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
