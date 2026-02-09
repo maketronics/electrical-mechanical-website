@@ -41,14 +41,55 @@ const Contact = () => {
     message: ''
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
   const handleChange = ({ target }) => {
     const { name, value, files } = target;
     setFormData(p => ({ ...p, [name]: files ? [...files] : value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch('http://localhost:3001/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({ type: 'success', message: 'Thank you! Your enquiry has been submitted successfully.' });
+        // Reset form
+        setFormData({
+          fullName: '',
+          email: '',
+          phone: '',
+          company: '',
+          projectType: '',
+          tph: '',
+          feedRockBulkDensity: '',
+          topFeedSize: '',
+          clayMoisture: '',
+          voltageFrequency: '',
+          drawings: [],
+          message: ''
+        });
+      } else {
+        setSubmitStatus({ type: 'error', message: data.error || 'Failed to submit form. Please try again.' });
+      }
+    } catch (error) {
+      setSubmitStatus({ type: 'error', message: 'Network error. Please check if the server is running.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -164,9 +205,23 @@ const Contact = () => {
                 onChange={handleChange}
               />
 
-              <button className="w-full bg-yellow-400 text-black font-black py-4 rounded-2xl
-                                 uppercase tracking-[0.2em] hover:bg-yellow-300 transition">
-                Submit Enquiry
+              {submitStatus && (
+                <div className={`p-4 rounded-xl ${
+                  submitStatus.type === 'success' 
+                    ? 'bg-green-500/20 border border-green-500/50 text-green-400' 
+                    : 'bg-red-500/20 border border-red-500/50 text-red-400'
+                }`}>
+                  {submitStatus.message}
+                </div>
+              )}
+
+              <button 
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-yellow-400 text-black font-black py-4 rounded-2xl
+                           uppercase tracking-[0.2em] hover:bg-yellow-300 transition
+                           disabled:opacity-50 disabled:cursor-not-allowed">
+                {isSubmitting ? 'Submitting...' : 'Submit Enquiry'}
               </button>
 
             </form>
