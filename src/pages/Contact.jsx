@@ -108,14 +108,14 @@ const Contact = () => {
               </p>
             </div>
 
-            <div className="border-t border-white/10 pt-8">
+            {/*<div className="border-t border-white/10 pt-8">
               <p className="text-yellow-400 text-xs uppercase tracking-widest mb-2">
                 Regions Served
               </p>
               <p className="text-2xl font-black italic uppercase">
                 UAE | Saudi Arabia | Oman
               </p>
-            </div>
+            </div>*/}
           </div>
 
           {/* FORM */}
