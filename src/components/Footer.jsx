@@ -17,12 +17,17 @@ const Footer = () => {
   return (
     <footer className="bg-black border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold text-yellow-400 mb-4">MAKETRONICS</h3>
+            <h3 className="text-xl font-bold text-yellow-400 mb-4">
+              MAKETRONICS
+            </h3>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Independent system solutions and integration partner for crushing & screening operations.
+              Independent system solutions and integration partner for
+              crushing & screening operations.
             </p>
           </div>
 
@@ -59,6 +64,25 @@ const Footer = () => {
               ))}
             </ul>
           </div>
+
+          {/* 📍 Location Section (NEW) */}
+          <div>
+            <h4 className="text-gray-200 font-semibold mb-4">Our Location</h4>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              United Arab Emirates <br />
+              Maketronics Communications L.L.C-FZ <br />
+              Meydan Grandstand, 6th Floor,Meydan Road, <br />
+              Nad Al Sheba, Dubai, U.A.E
+            </p>
+            <p className="mt-3 text-sm">
+              <a
+                href="mailto:info@make-tronics.com"
+                className="text-gray-300 hover:text-yellow-400 transition-colors"
+              >
+                info@make-tronics.com
+              </a>
+            </p>
+          </div>
         </div>
 
         {/* Bottom Bar */}
@@ -73,4 +97,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
