@@ -16,6 +16,7 @@ const Header = () => {
 
   const navLinks = [
     { name: 'Home', href: '/' },
+    { name: 'Services', href: '/services' },
     { name: 'Mechanical Systems', href: '/mechanical-systems' },
     { name: 'Electrical & Automation', href: '/electrical-automation' },
     { name: 'Industries Served', href: '/industries' },

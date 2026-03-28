@@ -1,11 +1,47 @@
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PrimaryCTA from '../components/PrimaryCTA';
 import SecondaryCTA from '../components/SecondaryCTA';
+import Seo from '../components/Seo';
+import { breadcrumbSchema, faqPageSchema, organizationSchema } from '../utils/schema';
+
+const IND_DESC =
+  'Specialized engineering for mining, crushing plants, and port terminals. We provide integrated solutions for high-tonnage extraction. Speak with our specialists to optimize your industrial site workflow.';
+
+const IND_FAQ = [
+  {
+    q: 'Do you support both greenfield and expansion projects?',
+    a: 'Yes. We engineer new lines and retrofits, including debottleneck studies where mechanical, electrical, and process constraints interact.',
+  },
+  {
+    q: 'Can you coordinate multi-vendor equipment lists?',
+    a: 'As an independent integrator we align OEM interfaces, steel, and controls without locking you into a single equipment brand.',
+  },
+  {
+    q: 'Where should I continue reading on this site?',
+    a: 'Explore regional hubs for Middle East and Southeast Asia projects, the services directory for mechanical and electrical detail, and execution support for commissioning.',
+  },
+];
 
 const IndustriesServed = () => {
+  const jsonLd = [
+    organizationSchema(),
+    breadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: 'Industries served', path: '/industries' },
+    ]),
+    faqPageSchema(IND_FAQ),
+  ];
+
   return (
     <div className="bg-[#050505] text-white selection:bg-yellow-400 selection:text-black font-sans antialiased">
+      <Seo
+        title="Mining & Quarry Engineering | Bulk Material Handling | Maketronics"
+        description={IND_DESC}
+        canonicalPath="/industries"
+        jsonLd={jsonLd}
+      />
       <Header />
       
       <main>
@@ -31,10 +67,10 @@ const IndustriesServed = () => {
                 Sector Expertise
               </div>
               
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6 tracking-tighter uppercase italic">
-                Industries <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
-                  We Serve
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6 tracking-tighter">
+                Mining &amp; Quarry Engineering
+                <span className="block text-3xl md:text-4xl lg:text-5xl mt-2 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600 italic">
+                  Bulk material handling &amp; port terminals
                 </span>
               </h1>
 
@@ -52,7 +88,7 @@ const IndustriesServed = () => {
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
               <div>
                 <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-yellow-400 mb-2">Market Segments</h2>
-                <h3 className="text-4xl md:text-5xl font-black tracking-tighter uppercase italic">Core <span className="text-gray-500">Sectors</span></h3>
+                <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase italic">Core <span className="text-gray-500">Sectors</span></h2>
               </div>
             </div>
 
@@ -133,6 +169,47 @@ const IndustriesServed = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="py-20 bg-[#080808] border-y border-white/5">
+          <div className="max-w-4xl mx-auto px-6 text-gray-300 space-y-8 leading-relaxed">
+            <h2 className="text-2xl md:text-3xl font-black text-white">Industry-specific engineering depth</h2>
+            <p>
+              Mining and quarry operations push steel, liners, and motors beyond catalog assumptions. We engineer for the
+              way material actually flows: segregation in bins, impact at crusher mouths, blinding tendencies in
+              moisture, and the maintenance tasks crews perform between shifts. That discipline carries into port and
+              terminal projects where reclaim and shiploading demand synchronized mechanical and electrical reliability.
+            </p>
+            <h3 className="text-lg font-bold text-yellow-400/90">Cross-links for common procurement paths</h3>
+            <p>
+              Teams evaluating Middle East hard-rock projects should read{' '}
+              <Link to="/middle-east/hard-rock-processing" className="text-yellow-400 hover:underline">
+                hard rock processing plant engineering GCC
+              </Link>
+              . Southeast Asia quarry teams may start with{' '}
+              <Link to="/southeast-asia/quarry-plant-integration" className="text-yellow-400 hover:underline">
+                quarry plant system integration
+              </Link>
+              . For mechanical catalog depth, open{' '}
+              <Link to="/mechanical-systems" className="text-yellow-400 hover:underline">
+                mechanical systems
+              </Link>{' '}
+              and{' '}
+              <Link to="/services" className="text-yellow-400 hover:underline">
+                services
+              </Link>
+              .
+            </p>
+            <h2 className="text-2xl font-black text-white">Frequently asked questions</h2>
+            <ul className="space-y-4">
+              {IND_FAQ.map((f, i) => (
+                <li key={i} className="border border-white/10 rounded-xl p-5 bg-[#0a0a0a]">
+                  <p className="font-bold text-white mb-1">{f.q}</p>
+                  <p className="text-sm text-gray-400">{f.a}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 

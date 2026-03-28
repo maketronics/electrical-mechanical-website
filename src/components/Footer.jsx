@@ -3,9 +3,18 @@ const Footer = () => {
 
   const footerLinks = {
     services: [
+      { name: 'All services', href: '/services' },
       { name: 'Mechanical Systems', href: '/mechanical-systems' },
       { name: 'Electrical & Automation', href: '/electrical-automation' },
       { name: 'Execution & Support', href: '/execution-support' },
+      { name: 'Screening plant engineering', href: '/services/screening-plant-engineering' },
+      { name: 'Bulk material handling', href: '/services/bulk-material-handling' },
+      { name: 'Crushing electrical integration', href: '/services/crushing-plant-electrical-integration' },
+    ],
+    regions: [
+      { name: 'Middle East', href: '/middle-east' },
+      { name: 'South Africa', href: '/south-africa' },
+      { name: 'Southeast Asia', href: '/southeast-asia' },
     ],
     company: [
       { name: 'Industries Served', href: '/industries' },
@@ -18,7 +27,7 @@ const Footer = () => {
     <footer className="bg-black border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           
           {/* Company Info */}
           <div>
@@ -36,6 +45,22 @@ const Footer = () => {
             <h4 className="text-gray-200 font-semibold mb-4">Services</h4>
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-gray-300 hover:text-yellow-400 transition-colors text-sm"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-gray-200 font-semibold mb-4">Regions</h4>
+            <ul className="space-y-2">
+              {footerLinks.regions.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}

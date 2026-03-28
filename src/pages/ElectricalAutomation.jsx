@@ -1,11 +1,54 @@
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PrimaryCTA from '../components/PrimaryCTA';
 import SecondaryCTA from '../components/SecondaryCTA';
+import Seo from '../components/Seo';
+import { breadcrumbSchema, faqPageSchema, organizationSchema, serviceSchema } from '../utils/schema';
+import { SITE_URL } from '../config/site';
+
+const ELEC_DESC =
+  'Modernize your plant with custom PLC logic and electrical integration. Maketronics delivers advanced control systems designed for dust and vibration. See how our automation solutions scale your output.';
+
+const ELEC_FAQ = [
+  {
+    q: 'Can you integrate VFD-controlled conveyors with plant-wide interlocks?',
+    a: 'Yes. We engineer starter and VFD topologies, braking strategies, and PLC permissives so conveyors start and stop in safe sequences aligned with crusher and feeder protection.',
+  },
+  {
+    q: 'How do you document PLC programs for handover?',
+    a: 'We provide structured logic, IO lists, alarm matrices, and HMI narratives so maintenance teams can trace trips quickly after commissioning.',
+  },
+  {
+    q: 'Which related pages cover panels and site execution?',
+    a: 'Review MCC fabrication, industrial control panels, and crushing plant electrical integration in our services directory, plus execution support for site testing.',
+  },
+];
 
 const ElectricalAutomation = () => {
+  const pageUrl = `${SITE_URL}/electrical-automation`;
+  const jsonLd = [
+    organizationSchema(),
+    serviceSchema({
+      name: 'Industrial automation and electrical integration',
+      description: ELEC_DESC,
+      url: pageUrl,
+    }),
+    breadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: 'Electrical & automation', path: '/electrical-automation' },
+    ]),
+    faqPageSchema(ELEC_FAQ),
+  ];
+
   return (
     <div className="bg-[#050505] text-white selection:bg-yellow-400 selection:text-black">
+      <Seo
+        title="Industrial Automation | PLC Control Panel Design | Maketronics"
+        description={ELEC_DESC}
+        canonicalPath="/electrical-automation"
+        jsonLd={jsonLd}
+      />
       <Header />
       
       <main>
@@ -35,9 +78,9 @@ const ElectricalAutomation = () => {
               
               {/* Reduced heading from text-8xl to text-7xl for better fit */}
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6 tracking-tighter">
-                Electrical & <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
-                  Automation Solutions
+                Industrial Automation
+                <span className="block text-3xl md:text-4xl lg:text-5xl mt-2 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
+                  PLC control panel design &amp; site integration
                 </span>
               </h1>
 
@@ -101,7 +144,7 @@ const ElectricalAutomation = () => {
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
               <div>
                 <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-yellow-400 mb-4">The Catalog</h2>
-                <h3 className="text-5xl lg:text-6xl font-black tracking-tighter uppercase">What We <span className="text-gray-500 italic">Deliver</span></h3>
+                <h2 className="text-5xl lg:text-6xl font-black tracking-tighter uppercase">What We <span className="text-gray-500 italic">Deliver</span></h2>
               </div>
               <div className="h-[1px] flex-grow mx-10 bg-white/10 hidden lg:block mb-4"></div>
             </div>
@@ -170,9 +213,9 @@ const ElectricalAutomation = () => {
                 <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-yellow-400 mb-8">
                   System Outcomes
                 </h2>
-                <h3 className="text-5xl font-black tracking-tighter uppercase leading-[0.9]">
+                <h2 className="text-5xl font-black tracking-tighter uppercase leading-[0.9]">
                   Performance <br /> Metrics
-                </h3>
+                </h2>
               </div>
               <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-12">
                 {[
@@ -188,6 +231,57 @@ const ElectricalAutomation = () => {
                 ))}
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="py-20 bg-[#050505] border-t border-white/5">
+          <div className="max-w-4xl mx-auto px-6 text-gray-300 space-y-8 leading-relaxed">
+            <h2 className="text-2xl md:text-3xl font-black text-white">Automation features for crushing and bulk plants</h2>
+            <p>
+              Industrial automation succeeds when panels are serviceable, IO is segregated logically, and operators see
+              alarms that map to field devices they can find in the dark. Maketronics programs PLCs and designs motor
+              control assemblies around the mechanical flowsheet so interlocks reflect real process risk—not only
+              electrical convenience.
+            </p>
+            <h3 className="text-lg font-bold text-yellow-400/90">Technical documentation and handover</h3>
+            <p>
+              We align cable schedules, motor nameplate data, and thermal overload settings with OEM manuals, then prove
+              them during loop checks. For teams comparing vendors, our{' '}
+              <Link to="/services/plc-programming" className="text-yellow-400 hover:underline">
+                PLC programming for quarry plants
+              </Link>
+              ,{' '}
+              <Link to="/services/vfd-systems" className="text-yellow-400 hover:underline">
+                VFD systems for conveyors
+              </Link>
+              , and{' '}
+              <Link to="/middle-east/industrial-automation" className="text-yellow-400 hover:underline">
+                Middle East industrial automation
+              </Link>{' '}
+              pages provide deeper, region-aware narratives.
+            </p>
+            <h2 className="text-2xl font-black text-white pt-4">Frequently asked questions</h2>
+            <ul className="space-y-4">
+              {ELEC_FAQ.map((f, i) => (
+                <li key={i} className="border border-white/10 rounded-xl p-5 bg-[#0a0a0a]">
+                  <p className="font-bold text-white mb-1">{f.q}</p>
+                  <p className="text-sm text-gray-400">{f.a}</p>
+                </li>
+              ))}
+            </ul>
+            <p className="text-sm text-gray-500">
+              <Link to="/services/mcc-panel-fabrication" className="text-yellow-400 hover:underline">
+                MCC panel fabrication
+              </Link>
+              {' · '}
+              <Link to="/services/crushing-plant-electrical-integration" className="text-yellow-400 hover:underline">
+                Crushing electrical integration
+              </Link>
+              {' · '}
+              <Link to="/execution-support" className="text-yellow-400 hover:underline">
+                Execution &amp; support
+              </Link>
+            </p>
           </div>
         </section>
 

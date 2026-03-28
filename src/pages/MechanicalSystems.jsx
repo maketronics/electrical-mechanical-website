@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PrimaryCTA from '../components/PrimaryCTA';
 import SecondaryCTA from '../components/SecondaryCTA';
+import Seo from '../components/Seo';
+import { breadcrumbSchema, faqPageSchema, organizationSchema, serviceSchema } from '../utils/schema';
+import { SITE_URL } from '../config/site';
 
 import feedHopper1 from "../assets/images/feed-hopper.jpg";
 import feedHopper2 from "../assets/images/feed-hopper2.jpg";
@@ -32,14 +36,55 @@ const MultipleImageSlider = ({ images }) => {
     <img
       src={images[current]}
       alt=""
+      loading="lazy"
+      decoding="async"
       className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
     />
   );
 };
 
+const MECH_DESC =
+  'From structural analysis to onsite assembly, our mechanical systems are built for high-tonnage mining. Partner with Maketronics for durable, battle-tested engineering. Contact our experts for a quote.';
+
+const MECH_FAQ = [
+  {
+    q: 'Do you design rock boxes and liner packages?',
+    a: 'Yes. We map impact and sliding wear to liner grades, thicknesses, and geometry—including rock box configurations—for hoppers, chutes, and screen discharge transitions.',
+  },
+  {
+    q: 'Can Maketronics integrate with our chosen crusher and screen OEMs?',
+    a: 'We are independent integrators. We engineer structures and interfaces around your approved OEM list and coordinate loads, anchor patterns, and maintenance clearances.',
+  },
+  {
+    q: 'Where can I read related services and regional pages?',
+    a: 'Use the services directory for detailed scopes, and review Middle East or Southeast Asia hubs when your project has regional logistics constraints.',
+  },
+];
+
 const MechanicalSystems = () => {
+  const mechUrl = `${SITE_URL}/mechanical-systems`;
+  const jsonLd = [
+    organizationSchema(),
+    serviceSchema({
+      name: 'Mechanical systems for crushing and screening',
+      description: MECH_DESC,
+      url: mechUrl,
+    }),
+    breadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: 'Mechanical systems', path: '/mechanical-systems' },
+    ]),
+    faqPageSchema(MECH_FAQ),
+  ];
+
   return (
     <div className="bg-[#050505] text-white selection:bg-yellow-400 selection:text-black">
+      <Seo
+        title="Crushing & Screening Systems | Rock Box Design | Maketronics"
+        description={MECH_DESC}
+        canonicalPath="/mechanical-systems"
+        jsonLd={jsonLd}
+      />
       <Header />
       
       <main>
@@ -68,9 +113,9 @@ const MechanicalSystems = () => {
 
               {/* Reduced size from text-8xl to 7xl for better fit */}
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6 tracking-tighter">
-                Mechanical Systems for <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
-                  Crushing & Screening
+                Crushing &amp; Screening Systems
+                <span className="block text-3xl md:text-4xl lg:text-5xl mt-2 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
+                  Rock box design &amp; structural integration
                 </span>
               </h1>
 
@@ -94,8 +139,8 @@ const MechanicalSystems = () => {
             {/* Section Header */}
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
               <div>
-                <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-yellow-400 mb-2">Engineering Catalog</h2>
-                <h3 className="text-4xl md:text-5xl font-black tracking-tighter uppercase italic">System <span className="text-gray-500">Breakdown</span></h3>
+                <p className="text-xs font-bold uppercase tracking-[0.5em] text-yellow-400 mb-2">Engineering Catalog</p>
+                <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase italic">System <span className="text-gray-500">Breakdown</span></h2>
               </div>
               <div className="hidden lg:block text-right">
                 <p className="text-gray-500 text-[10px] font-mono uppercase tracking-widest leading-tight">
@@ -249,6 +294,59 @@ const MechanicalSystems = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="py-20 bg-[#050505] border-t border-white/5">
+          <div className="max-w-4xl mx-auto px-6 text-gray-300 space-y-8 leading-relaxed">
+            <h2 className="text-2xl md:text-3xl font-black text-white">Mechanical features we engineer for every station</h2>
+            <p>
+              Structural integration for crushing and screening is more than steel tonnage. It is the disciplined layout
+              of maintenance platforms, the geometry of rock boxes that protect liners, and the sequencing of modular
+              bolt-up assemblies so site crews can close gaps without field cutting. Maketronics treats each station as
+              part of a flowsheet—not an island—so feed and discharge transitions preserve particle integrity and reduce
+              spillage that destroys idlers and belting.
+            </p>
+            <h3 className="text-lg font-bold text-yellow-400/90">Technical sub-topics we document in deliverables</h3>
+            <p>
+              Deliverables typically include fabrication drawings, BOMs aligned to approved makes, torque and bolting
+              notes, liner maps, and guard layouts. Where projects demand regional execution, we cross-link to{' '}
+              <Link to="/middle-east/quarry-plant-engineering" className="text-yellow-400 hover:underline">
+                quarry plant engineering in the Middle East
+              </Link>
+              ,{' '}
+              <Link to="/services/bulk-material-handling" className="text-yellow-400 hover:underline">
+                bulk material handling integration
+              </Link>
+              , and{' '}
+              <Link to="/services/conveyor-system-design" className="text-yellow-400 hover:underline">
+                mining conveyor system design
+              </Link>{' '}
+              so RFQ teams can navigate directly to the closest technical narrative.
+            </p>
+            <h2 className="text-2xl font-black text-white pt-4">Frequently asked questions</h2>
+            <ul className="space-y-4">
+              {MECH_FAQ.map((f, i) => (
+                <li key={i} className="border border-white/10 rounded-xl p-5 bg-[#0a0a0a]">
+                  <p className="font-bold text-white mb-1">{f.q}</p>
+                  <p className="text-sm text-gray-400">{f.a}</p>
+                </li>
+              ))}
+            </ul>
+            <p className="pt-4 text-sm text-gray-500">
+              More detail:{' '}
+              <Link to="/services" className="text-yellow-400 hover:underline">
+                all services
+              </Link>
+              {' · '}
+              <Link to="/electrical-automation" className="text-yellow-400 hover:underline">
+                electrical &amp; automation
+              </Link>
+              {' · '}
+              <Link to="/contact" className="text-yellow-400 hover:underline">
+                contact
+              </Link>
+            </p>
           </div>
         </section>
       </main>

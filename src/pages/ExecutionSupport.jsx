@@ -1,11 +1,53 @@
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PrimaryCTA from '../components/PrimaryCTA';
 import SecondaryCTA from '../components/SecondaryCTA';
+import Seo from '../components/Seo';
+import { breadcrumbSchema, faqPageSchema, organizationSchema, serviceSchema } from '../utils/schema';
+import { SITE_URL } from '../config/site';
+
+const EX_DESC =
+  'We manage your project from site assessment to commissioning. Maketronics provides structural analysis, equipment sourcing, and installation support. Partner with us for seamless project execution today.';
+
+const EX_FAQ = [
+  {
+    q: 'What does Maketronics own during execution?',
+    a: 'We own integration performance: interface engineering, assembly sequencing, installation support, and commissioning coordination—not branded equipment sales.',
+  },
+  {
+    q: 'Can you support remote FAT and staged shipment?',
+    a: 'Yes. We align factory acceptance tests, preservation requirements, and modular splits to site crane capability and laydown constraints.',
+  },
+  {
+    q: 'Which pages detail regional commissioning?',
+    a: 'Review Middle East commissioning services and execution support on this site for lifecycle narratives tied to your geography.',
+  },
+];
 
 const ExecutionSupport = () => {
+  const jsonLd = [
+    organizationSchema(),
+    serviceSchema({
+      name: 'Industrial project execution and site support',
+      description: EX_DESC,
+      url: `${SITE_URL}/execution-support`,
+    }),
+    breadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: 'Execution & support', path: '/execution-support' },
+    ]),
+    faqPageSchema(EX_FAQ),
+  ];
+
   return (
     <div className="bg-[#050505] text-white selection:bg-yellow-400 selection:text-black font-sans antialiased">
+      <Seo
+        title="Industrial Project Execution | Technical Site Support | Maketronics"
+        description={EX_DESC}
+        canonicalPath="/execution-support"
+        jsonLd={jsonLd}
+      />
       <Header />
       
       <main>
@@ -31,10 +73,10 @@ const ExecutionSupport = () => {
                 Lifecycle Responsibility
               </div>
               
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6 tracking-tighter uppercase italic">
-                Execution & <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
-                  Site Support
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6 tracking-tighter">
+                Industrial Project Execution
+                <span className="block text-3xl md:text-4xl lg:text-5xl mt-2 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600 italic">
+                  Technical site support &amp; commissioning
                 </span>
               </h1>
 
@@ -52,7 +94,7 @@ const ExecutionSupport = () => {
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-6">
               <div>
                 <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-yellow-400 mb-2">The Process</h2>
-                <h3 className="text-4xl md:text-5xl font-black tracking-tighter uppercase italic">Execution <span className="text-gray-500">Model</span></h3>
+                <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase italic">Execution <span className="text-gray-500">Model</span></h2>
               </div>
               <div className="hidden lg:block text-right">
                 <p className="text-gray-500 text-[10px] font-mono uppercase tracking-widest leading-tight">
@@ -115,6 +157,42 @@ const ExecutionSupport = () => {
                 Maketronics owns system integration, performance, and site execution responsibility. We coordinate equipment supply, engineer interfaces, and ensure systems perform as designed on site.
               </p>
             </div>
+          </div>
+        </section>
+
+        <section className="py-20 bg-[#080808] border-t border-white/5">
+          <div className="max-w-4xl mx-auto px-6 text-gray-300 space-y-8 leading-relaxed">
+            <h2 className="text-2xl md:text-3xl font-black text-white">Execution features from assessment to handover</h2>
+            <p>
+              Project execution fails when mechanical completion and electrical energization are treated as separate
+              races. Maketronics sequences installation support, punch lists, and loop checks so that startup plans reflect
+              verified field conditions—not assumptions from weeks earlier.
+            </p>
+            <h3 className="text-lg font-bold text-yellow-400/90">Related technical pages</h3>
+            <p>
+              Pair this page with{' '}
+              <Link to="/middle-east/commissioning-services" className="text-yellow-400 hover:underline">
+                crushing plant commissioning Middle East
+              </Link>
+              ,{' '}
+              <Link to="/services/mobile-crushing-integration" className="text-yellow-400 hover:underline">
+                mobile crushing integration
+              </Link>
+              , and{' '}
+              <Link to="/why-maketronics" className="text-yellow-400 hover:underline">
+                why Maketronics
+              </Link>{' '}
+              for governance and integration philosophy.
+            </p>
+            <h2 className="text-2xl font-black text-white">Frequently asked questions</h2>
+            <ul className="space-y-4">
+              {EX_FAQ.map((f, i) => (
+                <li key={i} className="border border-white/10 rounded-xl p-5 bg-[#0a0a0a]">
+                  <p className="font-bold text-white mb-1">{f.q}</p>
+                  <p className="text-sm text-gray-400">{f.a}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 

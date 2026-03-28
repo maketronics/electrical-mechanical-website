@@ -3,10 +3,37 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PrimaryCTA from '../components/PrimaryCTA';
 import SecondaryCTA from '../components/SecondaryCTA';
+import Seo from '../components/Seo';
+import { breadcrumbSchema, faqPageSchema, organizationSchema } from '../utils/schema';
+
+const HOME_FAQ = [
+  {
+    q: 'What does industrial systems integration include at Maketronics?',
+    a: 'We engineer and integrate mechanical structures—stations, chutes, conveyors, and wear systems—together with electrical packages such as MCCs, VFDs, PLC logic, and field devices, so your plant starts up as one coordinated system rather than disconnected vendor scopes.',
+  },
+  {
+    q: 'Do you manufacture crushers or screens?',
+    a: 'Maketronics is an independent integrator. We coordinate proven OEM equipment, fabricate structural and chute work, and own interface engineering, assembly support, and commissioning accountability.',
+  },
+  {
+    q: 'Which regions and service pages should I review first?',
+    a: 'Explore our Middle East, South Africa, and Southeast Asia hubs for regional integration, the services directory for detailed mechanical and electrical offerings, and mechanical or electrical overview pages for capability depth.',
+  },
+];
 
 const Home = () => {
   return (
     <div className="bg-[#050505] text-white selection:bg-yellow-400 selection:text-black">
+      <Seo
+        title="Industrial Systems Integration | Engineering Solutions | Maketronics"
+        description="Optimize your industrial operations with Maketronics' unified engineering. We integrate mechanical and electrical systems for harsh environments. Request a consultation today to improve site efficiency."
+        canonicalPath="/"
+        jsonLd={[
+          organizationSchema(),
+          breadcrumbSchema([{ name: 'Home', path: '/' }]),
+          faqPageSchema(HOME_FAQ),
+        ]}
+      />
       <Header />
       
       <main>
@@ -32,9 +59,9 @@ const Home = () => {
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6 tracking-tighter">
-                Complete System Solutions for <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
-                  Crushing & Screening
+                Industrial Systems Integration
+                <span className="block text-4xl md:text-5xl lg:text-6xl mt-2 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
+                  for crushing & screening plants
                 </span>
               </h1>
 
@@ -154,10 +181,10 @@ const Home = () => {
         <span className="flex items-center gap-2">Integration <div className="h-1.5 w-1.5 bg-yellow-400"></div></span>
       </div>
 
-      <div className="flex justify-end">
-        <a href="/electrical-automation" className="group inline-flex items-center gap-3 bg-white text-black px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-gray-200 transition-all">
+        <div className="flex justify-end">
+        <Link to="/electrical-automation" className="group inline-flex items-center gap-3 bg-white text-black px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-gray-200 transition-all min-h-[44px]">
           View Solutions <span className="group-hover:translate-x-2 transition-transform">→</span>
-        </a>
+        </Link>
       </div>
     </div>
   </div>
@@ -174,13 +201,13 @@ const Home = () => {
                   Industries <span className="text-gray-500">Served</span>
                 </h3>
               </div>
-              <a 
-                href="/industries" 
-                className="group flex items-center gap-4 bg-white/5 border border-white/10 px-8 py-4 rounded-full hover:bg-yellow-400 hover:text-black transition-all duration-500"
+              <Link 
+                to="/industries" 
+                className="group flex items-center gap-4 bg-white/5 border border-white/10 px-8 py-4 rounded-full hover:bg-yellow-400 hover:text-black transition-all duration-500 min-h-[44px]"
               >
                 <span className="text-sm font-bold uppercase tracking-widest">View All Industries</span>
                 <span className="text-xl group-hover:translate-x-2 transition-transform">→</span>
-              </a>
+              </Link>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -239,6 +266,124 @@ const Home = () => {
           </div>
         </section>
 
+        <section className="py-24 bg-[#080808] border-y border-white/5">
+          <div className="max-w-4xl mx-auto px-6 text-gray-300 leading-relaxed space-y-12">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-black text-white mb-4">
+                Industrial integration from feed point to load-out
+              </h2>
+              <p className="mb-4">
+                Industrial systems integration is the discipline of making crushers, screens, feeders, conveyors, and
+                electrical controls behave as one production system. Maketronics engineers the structural interfaces,
+                chutes, wear packages, and automation narratives together so that commissioning addresses process
+                performance—not a backlog of mismatched drawings.
+              </p>
+              <p className="mb-4">
+                Whether you are expanding a limestone quarry, hard-rock mine, or port handling line, we align OEM
+                equipment selections with fabrication sequencing, modular shipping splits, and site crane plans. That
+                coordination is how plants protect throughput when feed characteristics change or when maintenance
+                windows are tight.
+              </p>
+              <h3 className="text-lg font-bold text-yellow-400/90 mb-2 mt-8">Mechanical scope we routinely integrate</h3>
+              <p>
+                Primary and surge hoppers, jaw and cone stations, vibrating screen structures, transfer chutes, and
+                conveyor gantries are detailed with service access, guarding, and liner maps suited to your abrasion
+                profile. Explore our{' '}
+                <Link to="/mechanical-systems" className="text-yellow-400 hover:underline">
+                  mechanical systems
+                </Link>{' '}
+                overview or jump into services such as{' '}
+                <Link to="/services/crusher-station-fabrication" className="text-yellow-400 hover:underline">
+                  crusher station fabrication
+                </Link>{' '}
+                and{' '}
+                <Link to="/services/screening-plant-engineering" className="text-yellow-400 hover:underline">
+                  screening plant engineering
+                </Link>
+                .
+              </p>
+            </div>
+            <div>
+              <h2 className="text-2xl md:text-3xl font-black text-white mb-4">
+                Electrical, automation, and commissioning as one delivery
+              </h2>
+              <p className="mb-4">
+                High-dust and high-vibration sites punish control panels and field wiring. We design MCC and motor control
+                assemblies, VFD systems, and PLC programs with maintainable layouts, clear interlocks, and alarm
+                philosophies operators can interpret during night shifts.
+              </p>
+              <h3 className="text-lg font-bold text-yellow-400/90 mb-2 mt-6">Where to go next on this site</h3>
+              <p>
+                Review{' '}
+                <Link to="/electrical-automation" className="text-yellow-400 hover:underline">
+                  electrical &amp; automation
+                </Link>
+                ,{' '}
+                <Link to="/services/crushing-plant-electrical-integration" className="text-yellow-400 hover:underline">
+                  crushing plant electrical integration
+                </Link>
+                , and{' '}
+                <Link to="/execution-support" className="text-yellow-400 hover:underline">
+                  execution &amp; support
+                </Link>{' '}
+                for how we stay responsible from installation through performance trials.
+              </p>
+            </div>
+            <div>
+              <h2 className="text-2xl md:text-3xl font-black text-white mb-4">Regional hubs and global integration</h2>
+              <p className="mb-4">
+                We publish dedicated routes for{' '}
+                <Link to="/middle-east" className="text-yellow-400 hover:underline">
+                  Middle East
+                </Link>
+                ,{' '}
+                <Link to="/south-africa" className="text-yellow-400 hover:underline">
+                  South Africa
+                </Link>
+                , and{' '}
+                <Link to="/southeast-asia" className="text-yellow-400 hover:underline">
+                  Southeast Asia
+                </Link>{' '}
+                so procurement and engineering teams can find region-aware integration narratives, internal links, and
+                structured data aligned to their logistics reality. The full{' '}
+                <Link to="/services" className="text-yellow-400 hover:underline">
+                  services directory
+                </Link>{' '}
+                lists mechanical and electrical detail pages for RFQ-driven research.
+              </p>
+              <p>
+                If you are benchmarking partners for a new line or debottleneck, start with{' '}
+                <Link to="/industries" className="text-yellow-400 hover:underline">
+                  industries served
+                </Link>{' '}
+                and{' '}
+                <Link to="/why-maketronics" className="text-yellow-400 hover:underline">
+                  why Maketronics
+                </Link>
+                , then{' '}
+                <Link to="/contact" className="text-yellow-400 hover:underline">
+                  contact us
+                </Link>{' '}
+                with throughput targets, material assays, and single-line diagrams.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 bg-[#050505]">
+          <div className="max-w-4xl mx-auto px-6">
+            <h2 className="text-2xl font-black text-white mb-8">Frequently asked questions</h2>
+            <ul className="space-y-6">
+              {HOME_FAQ.map((item, i) => (
+                <li key={i} className="border border-white/10 rounded-2xl p-6 bg-[#0a0a0a]">
+                  <p className="font-bold text-white mb-2">{item.q}</p>
+                  <p className="text-gray-400 text-sm leading-relaxed">{item.a}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         {/* Why Choose Us */}
         <section className="py-32 relative overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-yellow-400/5 blur-[120px] rounded-full"></div>
@@ -253,12 +398,12 @@ const Home = () => {
                   We merge mechanical robustness with electrical intelligence to eliminate vendor friction.
                 </p>
                 <div className="flex">
-                  <a href="/why-maketronics" className="group flex items-center gap-6">
+                  <Link to="/why-maketronics" className="group flex items-center gap-6 min-h-[44px]">
                     <div className="w-16 h-16 rounded-full border border-yellow-400/30 flex items-center justify-center group-hover:bg-yellow-400 transition-all duration-500">
                       <span className="text-yellow-400 group-hover:text-black transition-colors text-2xl">→</span>
                     </div>
                     <span className="text-lg font-bold uppercase tracking-[0.2em]">Our Process</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
 

@@ -1,11 +1,46 @@
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PrimaryCTA from '../components/PrimaryCTA';
-//import SecondaryCTA from '../components/SecondaryCTA';
+import Seo from '../components/Seo';
+import { breadcrumbSchema, faqPageSchema, organizationSchema } from '../utils/schema';
+
+const WHY_DESC =
+  'Discover why Maketronics is the preferred partner for harsh environment engineering. Our independent model ensures you get the best equipment for your specific site. Contact us to learn about our process.';
+
+const WHY_FAQ = [
+  {
+    q: 'Why independent integration instead of a single OEM?',
+    a: 'Independence lets us align structures, chutes, and controls to your process targets without forcing a single brand across every duty point.',
+  },
+  {
+    q: 'How do unified mechanical and electrical teams help?',
+    a: 'One integrator removes gaps between steel and logic: interlocks, maintenance access, and cable routes are co-developed rather than negotiated late in construction.',
+  },
+  {
+    q: 'What should I read next?',
+    a: 'Review execution support, mechanical systems, and regional hubs to see how we deliver outside the brochure environment.',
+  },
+];
 
 const WhyMaketronics = () => {
+  const jsonLd = [
+    organizationSchema(),
+    breadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: 'Why Maketronics', path: '/why-maketronics' },
+    ]),
+    faqPageSchema(WHY_FAQ),
+  ];
+
   return (
     <div className="bg-[#050505] text-white selection:bg-yellow-400 selection:text-black font-sans">
+      <Seo
+        title="Unified Engineering Model | Independent Systems Integrator | Maketronics"
+        description={WHY_DESC}
+        canonicalPath="/why-maketronics"
+        jsonLd={jsonLd}
+      />
       <Header />
       
       <main>
@@ -33,10 +68,10 @@ const WhyMaketronics = () => {
               </div>
               
               {/* Reduced from lg:text-9xl to lg:text-7xl to prevent vertical overflow */}
-              <h1 className="text-6xl md:text-7xl lg:text-7xl font-black text-white leading-[1.05] mb-8 tracking-tighter uppercase italic">
-                Why <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
-                  Maketronics
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-8 tracking-tighter">
+                Unified Engineering Model
+                <span className="block text-3xl md:text-4xl mt-3 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600 italic">
+                  Independent systems integrator
                 </span>
               </h1>
 
@@ -51,6 +86,10 @@ const WhyMaketronics = () => {
         {/* 2. Value Tiles - Redesigned as a Technical Feature Grid */}
         <section className="py-32 bg-[#080808] border-y border-white/5 relative z-20">
           <div className="max-w-7xl mx-auto px-6">
+            <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-yellow-400 mb-4">Value propositions</h2>
+            <p className="text-3xl md:text-4xl font-black tracking-tighter uppercase italic mb-14 max-w-3xl">
+              How the <span className="text-gray-500">unified model</span> shows up on site
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               {[
                 { 
@@ -84,7 +123,7 @@ const WhyMaketronics = () => {
                     [ MOD_0{i + 1} ]
                   </div>
                   
-                  <h3 className="text-2xl font-black mb-6 tracking-tighter group-hover:text-yellow-400 transition-colors uppercase italic leading-tight">
+                  <h3 className="text-xl font-black mb-6 tracking-tighter group-hover:text-yellow-400 transition-colors uppercase italic leading-tight">
                     {item.title}
                   </h3>
                   <p className="text-gray-400 text-base leading-relaxed font-light">
@@ -96,6 +135,45 @@ const WhyMaketronics = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="py-20 bg-[#050505] border-t border-white/5">
+          <div className="max-w-4xl mx-auto px-6 text-gray-300 space-y-6 leading-relaxed">
+            <h2 className="text-2xl font-black text-white">Operational proof points</h2>
+            <p>
+              Harsh-environment engineering is measured in avoided downtime and predictable maintenance windows. Our
+              unified model reduces interface risk between mechanical contractors and electrical subcontractors because
+              Maketronics carries both disciplines under one integration mandate.
+            </p>
+            <p>
+              Continue with{' '}
+              <Link to="/execution-support" className="text-yellow-400 hover:underline">
+                execution &amp; support
+              </Link>
+              ,{' '}
+              <Link to="/services" className="text-yellow-400 hover:underline">
+                services
+              </Link>
+              , and{' '}
+              <Link to="/middle-east" className="text-yellow-400 hover:underline">
+                Middle East
+              </Link>{' '}
+              or{' '}
+              <Link to="/southeast-asia" className="text-yellow-400 hover:underline">
+                Southeast Asia
+              </Link>{' '}
+              hubs for geography-specific integration stories.
+            </p>
+            <h2 className="text-2xl font-black text-white pt-4">Frequently asked questions</h2>
+            <ul className="space-y-4">
+              {WHY_FAQ.map((f, i) => (
+                <li key={i} className="border border-white/10 rounded-xl p-5 bg-[#0a0a0a]">
+                  <p className="font-bold text-white mb-1">{f.q}</p>
+                  <p className="text-sm text-gray-400">{f.a}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 

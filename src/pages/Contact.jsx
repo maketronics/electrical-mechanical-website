@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Seo from '../components/Seo';
+import { breadcrumbSchema, organizationSchema } from '../utils/schema';
 
 /* =======================
    FIELD COMPONENT (FIXED)
@@ -35,6 +38,9 @@ const Field = ({ label, type = 'text', ...props }) => (
     )}
   </div>
 );
+
+const CONTACT_DESC =
+  'Ready to optimize your industrial operations? Contact Maketronics for expert mechanical and electrical engineering support. Reach out today to discuss your project requirements with our technical team.';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -96,7 +102,7 @@ const Contact = () => {
       } else {
         setSubmitStatus({ type: 'error', message: data.error || 'Failed to submit form. Please try again.' });
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus({ type: 'error', message: 'Network error. Please check if the server is running.' });
     } finally {
       setIsSubmitting(false);
@@ -105,6 +111,18 @@ const Contact = () => {
 
   return (
     <div className="bg-[#050505] text-white font-sans">
+      <Seo
+        title="Engineering Consultation | Industrial Support Services | Maketronics"
+        description={CONTACT_DESC}
+        canonicalPath="/contact"
+        jsonLd={[
+          organizationSchema(),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Contact', path: '/contact' },
+          ]),
+        ]}
+      />
       <Header />
 
       {/* HERO */}
@@ -118,10 +136,10 @@ const Contact = () => {
         }}
       >
         <div className="max-w-7xl mx-auto px-6 pt-12">
-          <h1 className="text-6xl md:text-7xl font-black uppercase italic leading-[0.9]">
-            Contact <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
-              Us
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[0.95]">
+            Engineering Consultation
+            <span className="block text-3xl md:text-4xl mt-2 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600 italic">
+              Industrial support services
             </span>
           </h1>
           <p className="mt-8 max-w-2xl text-gray-300 border-l-2 border-yellow-400/50 pl-6 italic">
@@ -141,11 +159,26 @@ const Contact = () => {
               <p className="text-xs uppercase tracking-[0.5em] text-yellow-400 mb-6">
                 Contact Information
               </p>
-              <h3 className="text-4xl font-black uppercase italic">
+              <h2 className="text-4xl font-black uppercase italic">
                 Maketronics
-              </h3>
+              </h2>
               <p className="text-gray-400 mt-4">
                 System integration partner for crushing & screening operations.
+              </p>
+              <p className="text-gray-500 text-sm mt-6 leading-relaxed">
+                Before you submit the form, you may want our{' '}
+                <Link to="/services" className="text-yellow-400 hover:underline">
+                  services directory
+                </Link>
+                ,{' '}
+                <Link to="/middle-east" className="text-yellow-400 hover:underline">
+                  Middle East hub
+                </Link>
+                , or{' '}
+                <Link to="/execution-support" className="text-yellow-400 hover:underline">
+                  execution &amp; support
+                </Link>{' '}
+                pages for vocabulary alignment on your RFQ.
               </p>
             </div>
 
