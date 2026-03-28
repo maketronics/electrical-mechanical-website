@@ -10,7 +10,7 @@ import {
   RELATED,
   serviceJsonLd,
   titleLine,
-} from './pageBuilders';
+} from './pageBuilders.js';
 
 const REGION_LABEL = {
   'middle-east': 'Middle East',

@@ -1,10 +1,10 @@
-import { SITE_URL } from '../config/site';
+import { SITE_URL } from '../config/site.js';
 import {
   breadcrumbSchema,
   faqPageSchema,
   organizationSchema,
   serviceSchema,
-} from '../utils/schema';
+} from '../utils/schema.js';
 
 const ORG = organizationSchema();
 

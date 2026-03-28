@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 import PrimaryCTA from '../components/PrimaryCTA';
 import SecondaryCTA from '../components/SecondaryCTA';
 import Seo from '../components/Seo';
-import { breadcrumbSchema, faqPageSchema, organizationSchema } from '../utils/schema';
+import { breadcrumbSchema, faqPageSchema, organizationSchema, websiteSchema } from '../utils/schema';
 
 const HOME_FAQ = [
   {
@@ -30,6 +30,7 @@ const Home = () => {
         canonicalPath="/"
         jsonLd={[
           organizationSchema(),
+          websiteSchema(),
           breadcrumbSchema([{ name: 'Home', path: '/' }]),
           faqPageSchema(HOME_FAQ),
         ]}

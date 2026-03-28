@@ -1,4 +1,4 @@
-import { ORG_ADDRESS, SITE_NAME, SITE_URL } from '../config/site';
+import { ORG_ADDRESS, SITE_NAME, SITE_URL } from '../config/site.js';
 
 const orgId = `${SITE_URL}/#organization`;
 
@@ -18,6 +18,17 @@ export function organizationSchema() {
       addressRegion: ORG_ADDRESS.addressRegion,
       addressCountry: ORG_ADDRESS.addressCountry,
     },
+  };
+}
+
+export function websiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE_URL}/#website`,
+    url: `${SITE_URL}/`,
+    name: SITE_NAME,
+    publisher: { '@id': orgId },
   };
 }
 
