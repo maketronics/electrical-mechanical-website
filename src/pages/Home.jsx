@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 import PrimaryCTA from '../components/PrimaryCTA';
 import SecondaryCTA from '../components/SecondaryCTA';
 import Seo from '../components/Seo';
-import { breadcrumbSchema, faqPageSchema, organizationSchema, websiteSchema } from '../utils/schema';
+import { homePageGraphSchema } from '../utils/schema';
 
 const HOME_FAQ = [
   {
@@ -28,12 +28,7 @@ const Home = () => {
         title="Industrial Systems Integration | Engineering Solutions | Maketronics"
         description="Optimize your industrial operations with Maketronics' unified engineering. We integrate mechanical and electrical systems for harsh environments. Request a consultation today to improve site efficiency."
         canonicalPath="/"
-        jsonLd={[
-          organizationSchema(),
-          websiteSchema(),
-          breadcrumbSchema([{ name: 'Home', path: '/' }]),
-          faqPageSchema(HOME_FAQ),
-        ]}
+        jsonLd={[homePageGraphSchema(HOME_FAQ)]}
       />
       <Header />
       

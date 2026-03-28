@@ -88,3 +88,35 @@ export function faqPageSchema(faqs) {
     })),
   };
 }
+
+/** Strip @context for nodes inside a shared @graph (avoids duplicate root types in Google's merger). */
+function graphNode(schemaObject) {
+  if (!schemaObject || typeof schemaObject !== 'object') return schemaObject;
+  const { '@context': _ctx, ...rest } = schemaObject;
+  return rest;
+}
+
+/**
+ * Single JSON-LD graph for the homepage: one script tag, one FAQPage entity (Google rich result requirement).
+ */
+export function homePageGraphSchema(faqs) {
+  const faqNode = {
+    '@type': 'FAQPage',
+    '@id': `${SITE_URL}/#faqpage`,
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      graphNode(organizationSchema()),
+      graphNode(websiteSchema()),
+      graphNode(breadcrumbSchema([{ name: 'Home', path: '/' }])),
+      faqNode,
+    ],
+  };
+}
