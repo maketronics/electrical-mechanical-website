@@ -175,7 +175,7 @@ const Contact = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Field label="Project Type (Retain)" name="projectType" value={formData.projectType} onChange={handleChange} />
+                <Field label="Project Type" name="projectType" value={formData.projectType} onChange={handleChange} />
                 <Field label="TPH Required" name="tph" value={formData.tph} onChange={handleChange} />
                 <Field label="Feed Rock Type / Bulk Density" name="feedRockBulkDensity" value={formData.feedRockBulkDensity} onChange={handleChange} />
                 <Field label="Top Feed Size" name="topFeedSize" value={formData.topFeedSize} onChange={handleChange} />
