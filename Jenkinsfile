@@ -44,9 +44,12 @@ pipeline {
                     rm -rf /tmp/deploy-package
 
                     # ----------------------------
-                    # CLONE REPO
+                    # CLONE EXACT TRIGGERED COMMIT
                     # ----------------------------
-                    git clone -b main git@github.com:maketronics/electrical-mechanical-website.git ${NEW_DIR}
+                    git clone git@github.com:maketronics/electrical-mechanical-website.git ${NEW_DIR}
+                    cd ${NEW_DIR}
+                    git checkout ${GIT_COMMIT}
+                    echo "Deploying commit: ${GIT_COMMIT}"
 
                     # ----------------------------
                     # LOAD NVM + NODE 20
@@ -65,7 +68,7 @@ pipeline {
                     cd ${NEW_DIR}/frontend
 
                     rm -rf node_modules package-lock.json
-                    npm install
+                    npm ci
                     npm run build
 
                     echo "✅ Frontend build success"
@@ -74,7 +77,7 @@ pipeline {
                     # PREPARE SERVER
                     # ----------------------------
                     cd ${NEW_DIR}/server
-                    npm install
+                    npm ci
 
                     echo "✅ Server ready"
 
