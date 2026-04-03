@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PrimaryCTA from '../components/PrimaryCTA';
-import SecondaryCTA from '../components/SecondaryCTA';
+import SecondaryCTA from '../components/secondaryCTA';
 
 import feedHopper1 from "../assets/images/feed-hopper.jpg";
 import feedHopper2 from "../assets/images/feed-hopper2.jpg";
