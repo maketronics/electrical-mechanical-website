@@ -1,5 +1,5 @@
 const SecondaryCTA = () => {
-  return null; // button completely removed
+  return null; // button intentionally removed
 };
 
 export default SecondaryCTA;
