@@ -1,7 +1,7 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PrimaryCTA from '../components/PrimaryCTA';
-import SecondaryCTA from '../components/secondaryCTA';
+import SecondaryCTA from '../components/SecondaryCTA';
 
 const IndustriesServed = () => {
   return (

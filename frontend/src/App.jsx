@@ -8,9 +8,6 @@ import ExecutionSupport from './pages/ExecutionSupport';
 import WhyMaketronics from './pages/WhyMaketronics';
 import Contact from './pages/Contact';
 
-console.log('API URL:', process.env.REACT_APP_API_URL);
-console.log('Other Key:', process.env.REACT_APP_OTHER_KEY);
-
 // App.jsx
 function App() {
   return (

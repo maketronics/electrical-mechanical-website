@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PrimaryCTA from '../components/PrimaryCTA';
-import SecondaryCTA from '../components/secondaryCTA';
+import SecondaryCTA from '../components/SecondaryCTA';
 
 const Home = () => {
   return (
@@ -267,10 +267,10 @@ const Home = () => {
                   { title: "Unified Engineering", desc: "Mechanical and electrical designed as one unit." },
                   { title: "Harsh Focus", desc: "Battle-tested in dust and vibration." },
                   { title: "Independent", desc: "Best-in-class components for your specific goals." },
-                  { title: "Support", desc: "From CAD drawings to 24/7 site commissioning." }
+                  { title: "Support", desc: "Customized." }
                 ].map((point, i) => (
                   <div key={i} className="bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 hover:bg-white/[0.08] transition-all">
-                    <h4 className="text-yellow-400 font-bold uppercase tracking-widest text-xs mb-4">Point 0{i + 1}</h4>
+                    <h4 className="text-yellow-400 font-bold uppercase tracking-widest text-xs mb-4"></h4>
                     <h5 className="text-xl font-bold mb-3 tracking-tight">{point.title}</h5>
                     <p className="text-gray-400 text-sm">{point.desc}</p>
                   </div>
