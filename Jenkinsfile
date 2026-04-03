@@ -67,8 +67,12 @@ pipeline {
                     # ----------------------------
                     cd ${NEW_DIR}/frontend
 
-                    rm -rf node_modules package-lock.json
-                    npm ci
+                    rm -rf node_modules
+                    if [ -f package-lock.json ]; then
+                        npm ci
+                    else
+                        npm install
+                    fi
                     npm run build
 
                     echo "✅ Frontend build success"
@@ -77,7 +81,11 @@ pipeline {
                     # PREPARE SERVER
                     # ----------------------------
                     cd ${NEW_DIR}/server
-                    npm ci
+                    if [ -f package-lock.json ]; then
+                        npm ci
+                    else
+                        npm install
+                    fi
 
                     echo "✅ Server ready"
 
