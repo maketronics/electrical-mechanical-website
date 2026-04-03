@@ -107,7 +107,7 @@ pipeline {
                     pm2 restart ${API_NAME} || pm2 start index.js --name ${API_NAME}
 
                     cd ${CURRENT_DIR}
-                    pm2 reload ${APP_NAME} || pm2 start npm --name "${APP_NAME}" -- start
+                    sudo systemctl restart nginx
 
                     echo "🎉 Deployment successful"
 
