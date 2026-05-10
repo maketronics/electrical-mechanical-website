@@ -1,10 +1,19 @@
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import InternalLinksSection from '../components/InternalLinksSection';
 import PrimaryCTA from '../components/PrimaryCTA';
 import SecondaryCTA from '../components/secondaryCTA';
+import { usePageSeo } from '../utils/usePageSeo';
 
 const Home = () => {
+  usePageSeo({
+    title: 'Maketronics | Mining & Aggregate System Integration',
+    description:
+      'Maketronics delivers specialized electrical and mechanical integration for high-tonnage crushing, screening, and material handling plants.',
+    h1: 'Complete System Solutions for Crushing & Screening',
+  });
+
   return (
     <div className="bg-[#050505] text-white selection:bg-yellow-400 selection:text-black">
       <Header />
@@ -67,7 +76,7 @@ const Home = () => {
                 { 
                   title: "System Design & Engineering", 
                   desc: "Complete system architecture and engineering solutions tailored to site requirements.", 
-                  icon: "M9 12h6m-6 4h6m2 5H7a2-2V5a2-2h5.586a1-1.293l5.414 5.414a1-1.707V19a2-2 2z" 
+                  icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
                 },
                 { 
                   title: "Mechanical System Integration", 
@@ -294,6 +303,7 @@ const Home = () => {
             </div>
           </div>
         </section>
+        <InternalLinksSection sourcePath="/" />
       </main>
 
       <Footer />

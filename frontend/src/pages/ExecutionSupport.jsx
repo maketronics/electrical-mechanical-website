@@ -2,8 +2,17 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PrimaryCTA from '../components/PrimaryCTA';
 import SecondaryCTA from '../components/secondaryCTA';
+import InternalLinksSection from '../components/InternalLinksSection';
+import { usePageSeo } from '../utils/usePageSeo';
 
 const ExecutionSupport = () => {
+  usePageSeo({
+    title: 'Our Approach | Independent Plant Engineering | Maketronics',
+    description:
+      'Independent plant engineering approach from concept and integration through commissioning and lifecycle support.',
+    h1: 'Execution & Site Support',
+  });
+
   return (
     <div className="bg-[#050505] text-white selection:bg-yellow-400 selection:text-black font-sans antialiased">
       <Header />
@@ -133,6 +142,7 @@ const ExecutionSupport = () => {
             </div>
           </div>
         </section>
+        <InternalLinksSection sourcePath="/approach/" />
       </main>
 
       <Footer />

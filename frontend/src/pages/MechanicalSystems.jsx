@@ -3,6 +3,8 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PrimaryCTA from '../components/PrimaryCTA';
 import SecondaryCTA from '../components/secondaryCTA';
+import InternalLinksSection from '../components/InternalLinksSection';
+import { usePageSeo } from '../utils/usePageSeo';
 
 import feedHopper1 from "../assets/images/feed-hopper.jpg";
 import feedHopper2 from "../assets/images/feed-hopper2.jpg";
@@ -38,6 +40,13 @@ const MultipleImageSlider = ({ images }) => {
 };
 
 const MechanicalSystems = () => {
+  usePageSeo({
+    title: 'Mechanical Systems Integration | Mining & Quarry | Maketronics',
+    description:
+      'Integrated mechanical systems for mining and quarry operations, engineered for harsh operating environments and high-tonnage throughput.',
+    h1: 'Mechanical Systems for Crushing & Screening',
+  });
+
   return (
     <div className="bg-[#050505] text-white selection:bg-yellow-400 selection:text-black">
       <Header />
@@ -251,6 +260,7 @@ const MechanicalSystems = () => {
             </div>
           </div>
         </section>
+        <InternalLinksSection sourcePath="/services/mechanical-systems/" />
       </main>
 
       <Footer />

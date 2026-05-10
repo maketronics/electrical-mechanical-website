@@ -2,8 +2,17 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PrimaryCTA from '../components/PrimaryCTA';
 import SecondaryCTA from '../components/secondaryCTA';
+import InternalLinksSection from '../components/InternalLinksSection';
+import { usePageSeo } from '../utils/usePageSeo';
 
 const IndustriesServed = () => {
+  usePageSeo({
+    title: 'Industries Served | GCC, Africa & SE Asia | Maketronics',
+    description:
+      'Maketronics supports mining, quarry, crushing, and bulk handling operations across GCC, Africa, and Southeast Asia.',
+    h1: 'Industries We Serve',
+  });
+
   return (
     <div className="bg-[#050505] text-white selection:bg-yellow-400 selection:text-black font-sans antialiased">
       <Header />
@@ -167,6 +176,7 @@ const IndustriesServed = () => {
             </div>
           </div>
         </section>
+        <InternalLinksSection sourcePath="/industries/" />
       </main>
 
       <Footer />

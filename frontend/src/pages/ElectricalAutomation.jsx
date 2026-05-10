@@ -2,8 +2,17 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PrimaryCTA from '../components/PrimaryCTA';
 import SecondaryCTA from '../components/secondaryCTA';
+import InternalLinksSection from '../components/InternalLinksSection';
+import { usePageSeo } from '../utils/usePageSeo';
 
 const ElectricalAutomation = () => {
+  usePageSeo({
+    title: 'Electrical & Automation Integration | Mining | Maketronics',
+    description:
+      'Electrical and automation integration for mining plants, including control panels, MCC systems, VFDs, and PLC logic.',
+    h1: 'Electrical & Automation Solutions',
+  });
+
   return (
     <div className="bg-[#050505] text-white selection:bg-yellow-400 selection:text-black">
       <Header />
@@ -209,6 +218,7 @@ const ElectricalAutomation = () => {
             </div>
           </div>
         </section>
+        <InternalLinksSection sourcePath="/services/electrical-automation/" />
       </main>
 
       <Footer />

@@ -1,9 +1,18 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PrimaryCTA from '../components/PrimaryCTA';
+import InternalLinksSection from '../components/InternalLinksSection';
+import { usePageSeo } from '../utils/usePageSeo';
 //import SecondaryCTA from '../components/secondaryCTA';
 
 const WhyMaketronics = () => {
+  usePageSeo({
+    title: 'Why Maketronics | Independent Mining Plant Integration',
+    description:
+      'Discover why Maketronics is chosen for independent mining plant integration across mechanical, electrical, and automation systems.',
+    h1: 'Why Maketronics',
+  });
+
   return (
     <div className="bg-[#050505] text-white selection:bg-yellow-400 selection:text-black font-sans">
       <Header />
@@ -115,6 +124,7 @@ const WhyMaketronics = () => {
             </div>
           </div>
         </section>
+        <InternalLinksSection sourcePath="/why-maketronics/" />
       </main>
 
       <Footer />
