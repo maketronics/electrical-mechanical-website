@@ -60,6 +60,14 @@ function App() {
 
         <Route path="/jaw-station-integration/" element={<JawStationIntegration />} />
         <Route path="/crusher-station-fabrication/" element={<CrusherStationFabrication />} />
+        <Route path="/services/crusher-station-fabrication/" element={<CrusherStationFabrication />} />
+        <Route path="/services/crusher-station-fabrication" element={<CrusherStationFabrication />} />
+        <Route path="/middle-east/crushing-plant-engineering/" element={<GccHardRockProcessing />} />
+        <Route path="/middle-east/crushing-plant-engineering" element={<GccHardRockProcessing />} />
+        <Route path="/south-africa/crushing-plant-engineering/" element={<SouthAfricaCrushingPlantEngineering />} />
+        <Route path="/south-africa/crushing-plant-engineering" element={<SouthAfricaCrushingPlantEngineering />} />
+        <Route path="/southeast-asia/crushing-plant-engineering/" element={<VietnamQuarryPlantIntegration />} />
+        <Route path="/southeast-asia/crushing-plant-engineering" element={<VietnamQuarryPlantIntegration />} />
         <Route path="/cone-crusher-structural-mounting/" element={<ConeCrusherStructuralMounting />} />
         <Route path="/vibrating-screen-fabrication/" element={<VibratingScreenFabrication />} />
         <Route path="/mining-conveyor-system-design/" element={<MiningConveyorSystemDesign />} />

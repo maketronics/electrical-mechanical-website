@@ -1,181 +1,250 @@
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import ContentPageHero from '../components/ContentPageHero';
 import Footer from '../components/Footer';
 import PrimaryCTA from '../components/PrimaryCTA';
-import SecondaryCTA from '../components/secondaryCTA';
 import InternalLinksSection from '../components/InternalLinksSection';
 import { usePageSeo } from '../utils/usePageSeo';
 
+const INDUSTRIAL_SECTORS = [
+  {
+    title: 'High-Tonnage Mining Circuits',
+    body:
+      'From precious metals to industrial base ores, the mining sector demands relentless, high-availability output under brutal conditions. We operate as a specialized mining electrical integrator, designing massive power distribution networks, automated crushing stations, and smart telemetry systems. Whether handling abrasive iron ore or sticky copper concentrates, our designs protect your high-value assets from the pit to the processing plant.',
+    focus: 'Run-of-Mine (ROM) primary stations, multi-drive overland transport, and port-loading integration.',
+  },
+  {
+    title: 'Commercial Quarry Integration Markets',
+    body:
+      'Commercial quarrying relies on extreme efficiency and flexible production to match fluctuating market demands. We serve diverse quarry integration markets by replacing rigid, manual control setups with intelligent automation. Our systems allow operators to instantly switch production profiles via smart HMIs, shifting from high-volume base courses to strict, high-specification concrete fractions without mechanical re-configuration.',
+    focus: 'Closed-loop PID feed control, automated sand washing logic, and multi-brand OEM synchronization.',
+  },
+  {
+    title: 'High-Specification Aggregate Processing Geographies',
+    body:
+      'Infrastructure projects—such as high-speed rail links, airport runways, and mega-highways—demand perfect particle cubicity and strict grading curves. We adapt our designs to the distinct challenges of different aggregate processing geographies. From the extreme ambient heat and high-silica gabbro of the GCC to the high-moisture tropical environments of Southeast Asia, we over-engineer our structures and logic to deliver nameplate TPH anywhere on Earth.',
+    focus: 'Tertiary VSI shape optimization, high-G structural screening, and micro-fines management.',
+  },
+];
+
+const ADAPTATION_MATRIX = [
+  {
+    challenge: 'High-Abrasive Geologies (Gabbro, Quartzite, Basalt)',
+    solution:
+      'Composite wear protection systems for crushers featuring rock-boxes, ceramics, and 600BHN overlays.',
+    impact: 'Extends chute and liner life from weeks to months.',
+  },
+  {
+    challenge: 'Tropical & High-Moisture Ores (Nickel, Wet Coal, Limestone)',
+    solution:
+      'Steep-angle crusher discharge chute engineering with ultra-low friction UHMW liners.',
+    impact: 'Eliminates material carry-back, bridging, and plugging.',
+  },
+  {
+    challenge: 'Unstable Regional Power Grids (Remote Corridors, Diesel Hybrid Sites)',
+    solution: 'Custom MCC panel fabrication with active climate control and active harmonic filtering.',
+    impact: 'Eliminates thermal derating and nuisance power trips.',
+  },
+];
+
 const IndustriesServed = () => {
   usePageSeo({
-    title: 'Industries Served | GCC, Africa & SE Asia | Maketronics',
+    title: 'Industries Served | Mining, Quarry & Aggregate | Maketronics',
     description:
-      'Maketronics supports mining, quarry, crushing, and bulk handling operations across GCC, Africa, and Southeast Asia.',
-    h1: 'Industries We Serve',
+      'Sector-specific engineering for mining circuits, commercial quarry integration, and aggregate processing geographies worldwide.',
+    h1: 'Industries We Serve: Sector-Specific Processing Engineering',
   });
 
   return (
     <div className="bg-[#050505] text-white selection:bg-yellow-400 selection:text-black font-sans antialiased">
       <Header />
-      
+
       <main>
-        {/* 1. Hero Section */}
-        <section
-          className="relative min-h-[85vh] flex items-center overflow-hidden"
-          style={{
-            backgroundImage: "linear-gradient(to right, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0.5) 100%), url('/hero-bg.png')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundAttachment: 'fixed'
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#050505]"></div>
-          
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-12">
-            <div className="max-w-4xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-yellow-400/30 bg-yellow-400/10 text-yellow-400 text-xs font-bold uppercase tracking-widest mb-6">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-400"></span>
-                </span>
-                Sector Expertise
-              </div>
-              
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6 tracking-tighter uppercase italic">
-                Industries <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
-                  We Serve
-                </span>
-              </h1>
-
-              <p className="text-lg md:text-xl text-gray-300 max-w-2xl font-light leading-relaxed italic border-l-2 border-yellow-400/50 pl-6">
-                Engineering solutions built for demanding material handling operations across the global mineral and aggregate sectors.
-              </p>
-            </div>
+        <ContentPageHero variant="mechanical" badge="Sector expertise">
+          <div className="max-w-5xl">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6 tracking-tighter">
+              Industries We Serve: Sector-Specific Processing Engineering
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300 max-w-5xl font-light leading-relaxed">
+              In heavy industrial processing, there is no room for &apos;one-size-fits-all&apos; engineering. The
+              operational stressors of a deep-level copper mine in South America share almost nothing in common with a
+              high-volume urban aggregate quarry in Southeast Asia or a hard-rock infrastructure site in the Middle East.
+              Yet, many engineering firms deploy standardized, generic designs across these vastly different sectors.
+              Failing to account for sector-specific variables—such as varying material abrasiveness, strict regional
+              environmental laws, and erratic local power grids—guarantees a plant that underperforms, wastes energy, and
+              suffers from chronic, premature mechanical and electrical fatigue.
+            </p>
           </div>
-        </section>
+        </ContentPageHero>
 
-        {/* 2. Industry Grid - 4 High-Density Tiles */}
-        <section className="py-24 bg-[#080808] border-y border-white/5">
+        <section className="relative z-20 -mt-20 py-16 md:py-24 bg-[#080808] border-y border-white/5">
           <div className="max-w-7xl mx-auto px-6">
-            
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-              <div>
-                <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-yellow-400 mb-2">Market Segments</h2>
-                <h3 className="text-4xl md:text-5xl font-black tracking-tighter uppercase italic">Core <span className="text-gray-500">Sectors</span></h3>
-              </div>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-6">
+              High-Stakes Industrial Sectors We Transform
+            </h2>
+            <p className="text-gray-300 max-w-5xl leading-relaxed mb-10">
+              Maketronics bridges the gap between raw mechanical extraction and precision processing. We engineer
+              field-hardened ecosystems across three primary global pillars:
+            </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { 
-                  title: "Mining & Minerals", 
-                  image: "/mining.png", 
-                  purpose: "High-tonnage extraction and primary processing plants.",
-                  bullets: ["Load-distribution frames", "Grizzly screen decks", "Wear-resistant liners", "Safety guard systems"],
-                  tags: ["High Tonnage", "Uptime"]
-                },
-                { 
-                  title: "Quarries & Aggregates", 
-                  image: "/Quarries.png", 
-                  purpose: "Precision screening and material transfer for stone production.",
-                  bullets: ["Modular chassis design", "Impact station protection", "Ergonomic service access", "Perimeter walkways"],
-                  tags: ["Modular", "Safety"]
-                },
-                { 
-                  title: "Crushing & Screening Plants", 
-                  image: "/crushing.png", 
-                  purpose: "Integrated stations with structural mounting and automation.",
-                  bullets: ["Custom-specific frames", "Maintenance gantries", "Abrasion-resistant chutes", "Rotor box protection"],
-                  tags: ["Precision", "Capacity"]
-                },
-                { 
-                  title: "Bulk Material Processing", 
-                  image: "/Bulk.png", 
-                  purpose: "High-volume handling at ports, terminals, and storage facilities.",
-                  bullets: ["Support gantries", "Impact transfer points", "Belt tensioning systems", "Control interfaces"],
-                  tags: ["Logistics", "Volume"]
-                }
-              ].map((item, i) => (
-                <div 
-                  key={i} 
-                  className="group bg-[#0a0a0a] rounded-[2rem] overflow-hidden border border-white/5 hover:border-yellow-400/40 transition-all duration-500 flex flex-col h-[650px] shadow-2xl"
+            <div className="space-y-10">
+              {INDUSTRIAL_SECTORS.map((sector, index) => (
+                <article
+                  key={sector.title}
+                  className="bg-[#0a0a0a] border border-white/10 rounded-xl p-6 md:p-8"
                 >
-                  <div className="h-48 relative overflow-hidden bg-[#111]">
-                    <div 
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
-                      style={{ backgroundImage: `url('${item.image}')` }}
-                    ></div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent"></div>
-                    {/*<div className="absolute bottom-4 left-6">
-                      <span className="text-yellow-400 font-mono text-[10px] uppercase tracking-widest bg-black/60 backdrop-blur-sm px-2 py-1 rounded">
-                        SEC-0{i + 1}
-                      </span>
-                    </div> */}
-                  </div>
-
-                  <div className="p-8 flex-grow flex flex-col justify-between">
-                    <div>
-                      <h4 className="text-xl font-bold mb-3 tracking-tighter uppercase italic group-hover:text-yellow-400 transition-colors leading-tight">
-                        {item.title}
-                      </h4>
-                      <p className="text-gray-400 text-[13px] italic mb-6 leading-relaxed border-l-2 border-yellow-400/30 pl-4">
-                        {item.purpose}
-                      </p>
-                      <ul className="space-y-3">
-                        {item.bullets.map((bullet, bid) => (
-                          <li key={bid} className="flex items-start gap-3 text-[13px] text-gray-300 leading-snug">
-                            <div className="h-1 w-1 rounded-full bg-yellow-400 mt-1.5 flex-shrink-0"></div>
-                            {bullet}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2 pt-6 border-t border-white/5">
-                      {item.tags.map((tag, tid) => (
-                        <span key={tid} className="text-[9px] font-bold uppercase tracking-widest text-yellow-400/80 bg-yellow-400/5 border border-yellow-400/10 px-2.5 py-1 rounded">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-yellow-400 mb-4">
+                    {index + 1}. {sector.title}
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed mb-4">{sector.body}</p>
+                  <p className="text-sm text-gray-400 border-l-2 border-yellow-400/50 pl-4">
+                    <strong className="text-white">Key Focus Areas:</strong> {sector.focus}
+                  </p>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* 3. Philosophy Line - Improved Visibility */}
-        <section className="py-32 bg-[#050505]">
-          <div className="max-w-7xl mx-auto px-6 text-center">
-            <div className="inline-block relative">
-              {/* Top Accent Line */}
-              <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-16 h-[1px] bg-yellow-400"></div>
-              
-              <p className="text-2xl md:text-3xl lg:text-4xl text-gray-400 font-light leading-snug max-w-4xl mx-auto italic tracking-tight">
-                "Our solutions are engineered around <span className="text-white font-bold underline decoration-yellow-400/40 decoration-2 underline-offset-8">real operating challenges</span>, not theoretical assumptions."
-              </p>
+        <section className="py-16 md:py-24 bg-[#050505]">
+          <div className="max-w-7xl mx-auto px-6">
+            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-6">
+              The Maketronics Adaptation Matrix
+            </h2>
+            <p className="text-gray-300 max-w-5xl leading-relaxed mb-10">
+              We don&apos;t expect your site conditions to match our designs; we engineer our designs to master your site
+              conditions:
+            </p>
+
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[640px] border-collapse text-left">
+                <thead>
+                  <tr className="border-b border-white/20">
+                    <th className="py-4 pr-4 text-xs font-bold uppercase tracking-widest text-yellow-400">
+                      Industrial Challenge
+                    </th>
+                    <th className="py-4 px-4 text-xs font-bold uppercase tracking-widest text-yellow-400">
+                      Our Engineered Solution
+                    </th>
+                    <th className="py-4 pl-4 text-xs font-bold uppercase tracking-widest text-yellow-400">
+                      System Impact
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {ADAPTATION_MATRIX.map((row) => (
+                    <tr key={row.challenge} className="border-b border-white/10">
+                      <td className="py-5 pr-4 align-top text-gray-200 font-medium">{row.challenge}</td>
+                      <td className="py-5 px-4 align-top text-gray-300">{row.solution}</td>
+                      <td className="py-5 pl-4 align-top text-gray-300">{row.impact}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
 
-        {/* 4. Final CTA */}
-        <section className="pb-24">
-          <div className="max-w-5xl mx-auto px-6">
-            <div className="bg-yellow-400 rounded-[2.5rem] p-16 text-center text-black shadow-2xl relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-80 h-80 bg-white/20 blur-[100px] rounded-full group-hover:scale-110 transition-transform duration-1000"></div>
-              <div className="relative z-10">
-                <h2 className="text-5xl md:text-6xl font-black mb-8 tracking-tighter uppercase italic leading-none">
-                  Ready to Discuss <br /> Your Industry?
-                </h2>
-                <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                  <PrimaryCTA className="!bg-black !text-white !px-12 !py-4" />
-                  <SecondaryCTA className="!border-black/30 !text-black !px-12 !py-4" />
-                </div>
-              </div>
+        <section className="py-16 md:py-24 bg-[#080808] border-y border-white/5">
+          <div className="max-w-7xl mx-auto px-6">
+            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-8">
+              Unifying the Power, Structure, and Logic Layer
+            </h2>
+            <p className="text-gray-300 max-w-5xl leading-relaxed mb-6">
+              Our independent status allows us to engineer complete system harmony across any industrial sector, bypassing
+              the proprietary hardware restrictions of single-brand OEMs:
+            </p>
+            <ul className="space-y-4 text-gray-300">
+              <li>
+                <strong className="text-white">Agnostic Process Automation:</strong> We deploy unified electrical
+                automation architectures that connect disparate machinery brands onto a single, intuitive SCADA network.
+              </li>
+              <li>
+                <strong className="text-white">Structural Longevity:</strong> We utilize advanced finite element analysis
+                to ensure that our vibrating screen structural fabrication resists structural fatigue, keeping your plant
+                balanced under high load profiles.
+              </li>
+              <li>
+                <strong className="text-white">Turnkey Start-Up Security:</strong> We manage the entire transition from
+                construction to live production through rigorous, site-specific crushing plant commissioning protocols,
+                ensuring your systems perform from day one.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section className="py-16 md:py-24 bg-[#050505]">
+          <div className="max-w-7xl mx-auto px-6">
+            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-10">
+              FAQ: Sector-Specific Engineering
+            </h2>
+            <div className="space-y-6">
+              <article className="bg-[#0a0a0a] border border-white/10 rounded-xl p-6">
+                <h3 className="text-lg font-bold mb-2">
+                  How do your quarry systems adapt to changing environmental and dust regulations?
+                </h3>
+                <p className="text-gray-300 leading-relaxed">
+                  We integrate dust encapsulation and velocity-matched material placement directly into our crusher
+                  discharge chute engineering. This suppresses dust at the source, keeping your quarry compliant with
+                  local environmental laws without relying on heavy water suppression. Link to{' '}
+                  <Link
+                    to="/crusher-discharge-chute-engineering/"
+                    className="text-yellow-400 hover:text-yellow-300 transition-colors"
+                  >
+                    Crusher Discharge Chute Engineering
+                  </Link>{' '}
+                  page.
+                </p>
+              </article>
+              <article className="bg-[#0a0a0a] border border-white/10 rounded-xl p-6">
+                <h3 className="text-lg font-bold mb-2">
+                  Can you integrate a new automation system into an older, existing mining infrastructure?
+                </h3>
+                <p className="text-gray-300 leading-relaxed">
+                  Yes. We specialize in brownfield modernization. As an independent system integrator, we can wrap a
+                  modern, data-driven automation layer around legacy mechanical assets, extending the lifespan and
+                  efficiency of your existing plant. Link to{' '}
+                  <Link
+                    to="/independent-system-integrator/"
+                    className="text-yellow-400 hover:text-yellow-300 transition-colors"
+                  >
+                    Independent System Integrator
+                  </Link>{' '}
+                  page.
+                </p>
+              </article>
+              <article className="bg-[#0a0a0a] border border-white/10 rounded-xl p-6">
+                <h3 className="text-lg font-bold mb-2">
+                  Do you provide on-site electrical engineering support for remote mining operations?
+                </h3>
+                <p className="text-gray-300 leading-relaxed">
+                  Yes. Alongside our modular, pre-tested electrical E-Rooms, we integrate secure remote-telemetry
+                  gateways into our industrial control panels for mining, allowing our global engineering team to
+                  diagnose and optimize your plant from anywhere in the world. Link to{' '}
+                  <Link
+                    to="/industrial-control-panels-mining/"
+                    className="text-yellow-400 hover:text-yellow-300 transition-colors"
+                  >
+                    Industrial Control Panels for Mining
+                  </Link>{' '}
+                  page.
+                </p>
+              </article>
             </div>
           </div>
         </section>
+
+        <section className="py-16 md:py-20 bg-[#080808] border-t border-white/5">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-6">
+              Are regional environmental challenges, power instability, or abrasive geologies throttling your plant&apos;s
+              efficiency? Tell us your industry sector, your material profile, and your location. We will provide a
+              specific industrial integration assessment to harden your operation.
+            </p>
+            <PrimaryCTA text="Request Industrial Integration Assessment" />
+          </div>
+        </section>
+
         <InternalLinksSection sourcePath="/industries/" />
       </main>
 

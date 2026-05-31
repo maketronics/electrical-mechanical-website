@@ -1,4 +1,8 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { getCanonicalUrl, getHreflangAlternates } from './hreflangConfig';
+
+const HREFLANG_MARKER = 'data-hreflang-managed';
 
 const upsertHeadTag = (selector, createTag, attributes = {}, content) => {
   let element = document.head.querySelector(selector);
@@ -31,15 +35,35 @@ const upsertCanonical = (href) => {
   link.setAttribute('href', href);
 };
 
+const removeHreflangTags = () => {
+  document.head.querySelectorAll(`link[${HREFLANG_MARKER}]`).forEach((node) => node.remove());
+};
+
+const upsertHreflangTags = (alternates) => {
+  removeHreflangTags();
+  alternates.forEach(({ hreflang, href }) => {
+    const link = document.createElement('link');
+    link.rel = 'alternate';
+    link.hreflang = hreflang;
+    link.href = href;
+    link.setAttribute(HREFLANG_MARKER, 'true');
+    document.head.appendChild(link);
+  });
+};
+
 const safeTitle = (title) => {
   if (!title) return 'Maketronics';
   return title.length <= 59 ? title : `${title.slice(0, 56)}...`;
 };
 
 export const usePageSeo = ({ title, description, h1 }) => {
+  const { pathname } = useLocation();
+
   useEffect(() => {
     const computedTitle = safeTitle(title);
-    const canonical = `${window.location.origin}${window.location.pathname}`;
+    const canonical = getCanonicalUrl(pathname);
+    const hreflangAlternates = getHreflangAlternates(pathname);
+
     document.title = computedTitle;
     upsertMetaByName('description', description);
     upsertMetaByName('robots', 'index, follow');
@@ -51,12 +75,15 @@ export const usePageSeo = ({ title, description, h1 }) => {
     upsertMetaByName('twitter:title', computedTitle);
     upsertMetaByName('twitter:description', description);
     upsertCanonical(canonical);
+    upsertHreflangTags(hreflangAlternates);
 
     if (h1 && computedTitle.trim().toLowerCase() === h1.trim().toLowerCase()) {
-      // Keep a visible dev warning for content QA.
       // eslint-disable-next-line no-console
       console.warn('SEO rule: title tag and H1 should not be identical.');
     }
-  }, [title, description, h1]);
-};
 
+    return () => {
+      removeHreflangTags();
+    };
+  }, [title, description, h1, pathname]);
+};
