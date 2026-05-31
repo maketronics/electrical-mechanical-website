@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import PageUiEnhancer from './components/PageUiEnhancer';
+import SchemaInjector from './components/SchemaInjector';
 import Home from './pages/Home';
 import MechanicalSystems from './pages/MechanicalSystems';
 import ElectricalAutomation from './pages/ElectricalAutomation';
@@ -36,6 +37,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <SchemaInjector />
       <PageUiEnhancer />
       <Routes>
         <Route path="/" element={<Home />} />

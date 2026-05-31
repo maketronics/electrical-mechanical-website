@@ -195,6 +195,10 @@ export const PAGE_TITLES = {
   '/crushing-plant-commissioning-middle-east/': 'Commissioning Middle East',
   '/screening-plant-engineering-company/': 'Screening plant engineering',
   '/why-maketronics/': 'Why Maketronics',
+  '/middle-east/crushing-plant-engineering/': 'Crushing plant engineering',
+  '/south-africa/crushing-plant-engineering/': 'Crushing plant engineering',
+  '/southeast-asia/crushing-plant-engineering/': 'Crushing plant engineering',
+  '/services/crusher-station-fabrication/': 'Crusher station fabrication',
 };
 
 export const normalizePath = (path) => (path.endsWith('/') && path.length > 1 ? path.slice(0, -1) : path);

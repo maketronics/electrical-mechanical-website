@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { usePageSeo } from '../utils/usePageSeo';
 
 /* =======================
    FIELD COMPONENT (FIXED)
@@ -37,6 +38,13 @@ const Field = ({ label, type = 'text', ...props }) => (
 );
 
 const Contact = () => {
+  usePageSeo({
+    title: 'Contact Maketronics | System Integration Enquiry',
+    description:
+      'Contact Maketronics for crushing plant mechanical design, electrical automation, and mining system integration enquiries across GCC, Africa, and Southeast Asia.',
+    h1: 'Contact Maketronics',
+  });
+
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
