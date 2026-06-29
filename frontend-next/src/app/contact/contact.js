@@ -136,13 +136,12 @@ const Contact = () => {
     });
 
     const response = await fetch(
-      'https://electrical-mechanical-website.onrender.com/api/send-email',
-      {
-        method: 'POST',
-        body: formDataToSend,
-      }
-    );
-
+  '/api/send-email',
+  {
+    method: 'POST',
+    body: formDataToSend,
+  }
+);
     const data = await response.json();
 
     if (response.ok) {
